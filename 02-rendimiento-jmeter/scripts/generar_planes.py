@@ -17,8 +17,8 @@ def _prop(parent, tag, name, value):
     return node
 
 
-def component(parent, tag, gui, label):
-    node = SubElement(parent, tag, guiclass=gui, testclass=tag, testname=label, enabled="true")
+def component(parent, tag, gui, label, *, enabled=True):
+    node = SubElement(parent, tag, guiclass=gui, testclass=tag, testname=label, enabled=str(enabled).lower())
     return node, SubElement(parent, "hashTree")
 
 
@@ -102,6 +102,16 @@ class Plan:
         prop(defaults, "HTTPSampler.implementation", "HttpClient4")
         prop(defaults, "HTTPSampler.contentEncoding", "UTF-8")
         prop(defaults, "HTTPSampler.concurrentPool", 1)
+
+    def add_result_listeners(self):
+        for label, gui, enabled in (
+            ("Summary Report", "SummaryReport", True),
+            ("Aggregate Report", "StatVisualizer", True),
+            ("View Results Tree", "ViewResultsFullVisualizer", False),
+        ):
+            listener, _ = component(self.tree, "ResultCollector", gui, label, enabled=enabled)
+            prop(listener, "ResultCollector.error_logging", False)
+            prop(listener, "filename", "")
 
     def http(self, parent, key, path, *, method="GET", expected=200, values=None, raw=None,
              request_headers=None, upload=None, assertion=None, before=None, web=False):
@@ -436,6 +446,7 @@ def main():
             plan = Plan(env, profile)
             for group in groups:
                 plan.group(group)
+            plan.add_result_listeners()
             indent(plan.root)
             ElementTree(plan.root).write(folder / f"{profile}.jmx", encoding="utf-8", xml_declaration=True)
 

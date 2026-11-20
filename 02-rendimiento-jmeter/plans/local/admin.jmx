@@ -346,6 +346,21 @@ verify(body.status == 'connected' &amp;&amp; body.provider == 's3' &amp;&amp;
           </hashTree>
         </hashTree>
       </hashTree>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <stringProp name="filename" />
+      </ResultCollector>
+      <hashTree />
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <stringProp name="filename" />
+      </ResultCollector>
+      <hashTree />
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <stringProp name="filename" />
+      </ResultCollector>
+      <hashTree />
     </hashTree>
   </hashTree>
 </jmeterTestPlan>
