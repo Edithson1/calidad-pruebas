@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites name="pytest tests">
+  <testsuite name="pytest" errors="0" failures="0" skipped="0" tests="9" time="189.551" timestamp="2026-11-19T20:15:05.173444-05:00">
+    <testcase classname="tests.test_visiontext" name="test_APP_01_navegacion_nativa_en_las_cuatro_pestanas" time="30.190" />
+    <testcase classname="tests.test_visiontext" name="test_APP_02_busqueda_vacia_muestra_validacion" time="6.913" />
+    <testcase classname="tests.test_visiontext" name="test_APP_03_busqueda_textual_desliza_y_abre_original" time="35.132" />
+    <testcase classname="tests.test_visiontext" name="test_APP_04_busqueda_visual_recupera_la_foto_del_catalogo" time="39.040" />
+    <testcase classname="tests.test_visiontext" name="test_APP_05_cancelar_y_quitar_documento" time="11.562" />
+    <testcase classname="tests.test_visiontext" name="test_APP_06_subida_y_admin_requieren_autenticacion" time="8.244" />
+    <testcase classname="tests.test_visiontext" name="test_APP_07_servidor_rechaza_url_invalida_y_conserva_la_configuracion" time="11.647" />
+    <testcase classname="tests.test_visiontext" name="test_APP_08_probar_servidor_y_persistir_el_ajuste" time="16.175" />
+    <testcase classname="tests.test_visiontext" name="test_APP_09_login_catalogo_y_logout" time="23.173" />
+  </testsuite>
+</testsuites>

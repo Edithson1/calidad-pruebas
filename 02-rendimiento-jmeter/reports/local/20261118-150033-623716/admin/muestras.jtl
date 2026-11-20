@@ -1,0 +1,21 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,Latency,IdleTime,Connect
+1795032321651,97,ADM-01 Login de administrador,200,OK,admin | 2 VU 1-1,text,true,,322,281,2,2,86,0,67
+1795032321685,63,ADM-01 Login de administrador,200,OK,admin | 2 VU 1-2,text,true,,322,281,2,2,52,0,33
+1795032322646,41,ADM-02 Primera pagina de catalogo,200,OK,admin | 2 VU 1-1,text,true,,2072,329,2,2,41,0,0
+1795032322646,38,ADM-02 Primera pagina de catalogo,200,OK,admin | 2 VU 1-2,text,true,,2072,329,2,2,38,0,0
+1795032323355,30,ADM-03 Segunda pagina de catalogo,200,OK,admin | 2 VU 1-1,text,true,,2092,329,2,2,30,0,0
+1795032323355,33,ADM-03 Segunda pagina de catalogo,200,OK,admin | 2 VU 1-2,text,true,,2092,329,2,2,33,0,0
+1795032323915,112,ADM-04 Estado de almacenamiento,200,OK,admin | 2 VU 1-1,text,true,,274,313,2,2,112,0,0
+1795032323915,112,ADM-04 Estado de almacenamiento,200,OK,admin | 2 VU 1-2,text,true,,274,313,2,2,112,0,0
+1795032324539,26,ADM-02 Primera pagina de catalogo,200,OK,admin | 2 VU 1-1,text,true,,2072,329,2,2,26,0,0
+1795032324539,29,ADM-02 Primera pagina de catalogo,200,OK,admin | 2 VU 1-2,text,true,,2072,329,2,2,29,0,0
+1795032325033,27,ADM-03 Segunda pagina de catalogo,200,OK,admin | 2 VU 1-2,text,true,,2092,329,2,2,27,0,0
+1795032325033,29,ADM-03 Segunda pagina de catalogo,200,OK,admin | 2 VU 1-1,text,true,,2092,329,2,2,29,0,0
+1795032325515,94,ADM-04 Estado de almacenamiento,200,OK,admin | 2 VU 1-1,text,true,,274,313,2,2,94,0,0
+1795032325515,96,ADM-04 Estado de almacenamiento,200,OK,admin | 2 VU 1-2,text,true,,274,313,2,2,96,0,0
+1795032326064,27,ADM-02 Primera pagina de catalogo,200,OK,admin | 2 VU 1-1,text,true,,2072,329,2,2,26,0,0
+1795032326064,29,ADM-02 Primera pagina de catalogo,200,OK,admin | 2 VU 1-2,text,true,,2072,329,2,2,29,0,0
+1795032326545,29,ADM-03 Segunda pagina de catalogo,200,OK,admin | 2 VU 1-1,text,true,,2092,329,2,2,29,0,0
+1795032326551,29,ADM-03 Segunda pagina de catalogo,200,OK,admin | 2 VU 1-2,text,true,,2092,329,2,2,29,0,0
+1795032327045,86,ADM-04 Estado de almacenamiento,200,OK,admin | 2 VU 1-2,text,true,,274,313,2,2,86,0,0
+1795032327029,102,ADM-04 Estado de almacenamiento,200,OK,admin | 2 VU 1-1,text,true,,274,313,2,2,102,0,0

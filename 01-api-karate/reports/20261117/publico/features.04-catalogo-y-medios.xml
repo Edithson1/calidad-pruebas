@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite failures="0" name="features/04-catalogo-y-medios.feature" skipped="0" tests="5" time="18.202163">
+  <testcase classname="features.04-catalogo-y-medios" name="CAT-01 El catálogo desplegado devuelve elefantes para African elephant y permite descargar original y miniatura" time="6.879737" />
+  <testcase classname="features.04-catalogo-y-medios" name="CAT-02 Una consulta por JPEG recupera el mismo archivo del dataset con alta similitud" time="6.686991" />
+  <testcase classname="features.04-catalogo-y-medios" name="CAT-05 El umbral máximo devuelve una colección vacía con un esquema válido" time="3.274205" />
+  <testcase classname="features.04-catalogo-y-medios" name="CAT-03 Devuelve 404 para un ID inexistente en images" time="0.683617" />
+  <testcase classname="features.04-catalogo-y-medios" name="CAT-04 Devuelve 404 para un ID inexistente en thumbnails" time="0.677613" />
+</testsuite>

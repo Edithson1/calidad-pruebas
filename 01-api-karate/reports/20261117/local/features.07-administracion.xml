@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite failures="0" name="features/07-administracion.feature" skipped="0" tests="8" time="0.386958">
+  <testcase classname="features.07-administracion" name="ADM-01 El formulario URL encoded de Android devuelve un JWT Bearer utilizable" time="0.116605" />
+  <testcase classname="features.07-administracion" name="ADM-02 El formulario multipart de la web devuelve un JWT Bearer utilizable" time="0.091925" />
+  <testcase classname="features.07-administracion" name="ADM-03 Rechaza una contraseña incorrecta con 401" time="0.024105" />
+  <testcase classname="features.07-administracion" name="ADM-04 La lista autenticada rechaza limit=0" time="0.051685" />
+  <testcase classname="features.07-administracion" name="ADM-05 La lista autenticada rechaza limit=501" time="0.028036" />
+  <testcase classname="features.07-administracion" name="ADM-06 La lista autenticada rechaza offset=-1" time="0.024456" />
+  <testcase classname="features.07-administracion" name="ADM-07 La lista autenticada rechaza offset=abc" time="0.025952" />
+  <testcase classname="features.07-administracion" name="ADM-08 El borrado autenticado de un ID aleatorio inexistente devuelve 404" time="0.024195" />
+</testsuite>

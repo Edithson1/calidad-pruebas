@@ -1,0 +1,12 @@
+.venv/
+.appium/
+node_modules/
+__pycache__/
+.pytest_cache/
+target/
+chromedriver.exe
+.env
+.env.*
+*.log
+**/reports/*/
+**/evidence/appium-navegacion.png

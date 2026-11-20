@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite failures="0" name="features/02-busqueda-texto.feature" skipped="0" tests="10" time="1.70608">
+  <testcase classname="features.02-busqueda-texto" name="TXT-01 Consulta válida con límite de un resultado" time="1.449124" />
+  <testcase classname="features.02-busqueda-texto" name="TXT-02 FastAPI rechaza consulta ausente" time="0.041164" />
+  <testcase classname="features.02-busqueda-texto" name="TXT-03 FastAPI rechaza consulta vacía" time="0.031016" />
+  <testcase classname="features.02-busqueda-texto" name="TXT-04 FastAPI rechaza consulta mayor a 500 caracteres" time="0.0267" />
+  <testcase classname="features.02-busqueda-texto" name="TXT-05 FastAPI rechaza consulta no textual" time="0.029256" />
+  <testcase classname="features.02-busqueda-texto" name="TXT-06 FastAPI rechaza límite debajo del mínimo" time="0.025289" />
+  <testcase classname="features.02-busqueda-texto" name="TXT-07 FastAPI rechaza límite por encima del máximo" time="0.025818" />
+  <testcase classname="features.02-busqueda-texto" name="TXT-08 FastAPI rechaza umbral negativo" time="0.027486" />
+  <testcase classname="features.02-busqueda-texto" name="TXT-09 FastAPI rechaza umbral por encima de uno" time="0.02866" />
+  <testcase classname="features.02-busqueda-texto" name="TXT-10 Un JSON mal formado retorna un error de parseo" time="0.021567" />
+</testsuite>

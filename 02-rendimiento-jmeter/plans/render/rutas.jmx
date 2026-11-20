@@ -1,0 +1,634 @@
+<?xml version='1.0' encoding='utf-8'?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="VisionText | render | rutas" enabled="true">
+      <stringProp name="TestPlan.comments">Plan HTTP generado desde scripts/perfiles.py. Usa el lanzador para configurar datos y reportes.</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments">
+        <collectionProp name="Arguments.arguments" />
+      </elementProp>
+    </TestPlan>
+    <hashTree>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="API y timeouts" enabled="true">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+          <collectionProp name="Arguments.arguments" />
+        </elementProp>
+        <stringProp name="HTTPSampler.domain">visiontext-backend.onrender.com</stringProp>
+        <stringProp name="HTTPSampler.protocol">https</stringProp>
+        <stringProp name="HTTPSampler.port">443</stringProp>
+        <stringProp name="HTTPSampler.connect_timeout">12000</stringProp>
+        <stringProp name="HTTPSampler.response_timeout">65000</stringProp>
+        <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+        <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+        <stringProp name="HTTPSampler.concurrentPool">1</stringProp>
+      </ConfigTestElement>
+      <hashTree />
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="rutas | 1 VU" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Iteraciones">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration" />
+        <stringProp name="ThreadGroup.delay" />
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="API-01 Raiz" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments" />
+          </elementProp>
+          <stringProp name="HTTPSampler.path">/</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="0">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree />
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Respuesta en 18000 ms o menos" enabled="true">
+            <stringProp name="DurationAssertion.duration">18000</stringProp>
+          </DurationAssertion>
+          <hashTree />
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Validar respuesta y correlacion" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters" />
+            <stringProp name="filename" />
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">if (prev.getResponseCode() != '200') return
+def verify = { ok, message -&gt;
+    if (!ok) {
+        AssertionResult.setFailure(true)
+        AssertionResult.setFailureMessage(message)
+    }
+    ok
+}
+try {
+    def body = new groovy.json.JsonSlurper().parseText(prev.getResponseDataAsString())
+def validId = { value -&gt; value instanceof String &amp;&amp; value ==~ /[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}/ }
+verify(body.status == 'running' &amp;&amp; body.message == 'VisionText Backend API', 'Raiz de VisionText incorrecta')
+} catch (Exception ignored) {
+    AssertionResult.setFailure(true)
+    AssertionResult.setFailureMessage('Respuesta inesperada o formato invalido')
+}</stringProp>
+          </JSR223Assertion>
+          <hashTree />
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="API-02 Salud y conteo del indice" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments" />
+          </elementProp>
+          <stringProp name="HTTPSampler.path">/api/health</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="0">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree />
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Respuesta en 18000 ms o menos" enabled="true">
+            <stringProp name="DurationAssertion.duration">18000</stringProp>
+          </DurationAssertion>
+          <hashTree />
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Validar respuesta y correlacion" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters" />
+            <stringProp name="filename" />
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">if (prev.getResponseCode() != '200') return
+def verify = { ok, message -&gt;
+    if (!ok) {
+        AssertionResult.setFailure(true)
+        AssertionResult.setFailureMessage(message)
+    }
+    ok
+}
+try {
+    def body = new groovy.json.JsonSlurper().parseText(prev.getResponseDataAsString())
+def validId = { value -&gt; value instanceof String &amp;&amp; value ==~ /[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}/ }
+
+verify(body.status == 'healthy' &amp;&amp; body.storage_provider == 'google_drive' &amp;&amp;
+       body.images_in_db &gt; 0 &amp;&amp; body.images_in_db == body.vectors_in_index,
+       'Salud o conteos del indice incorrectos')
+} catch (Exception ignored) {
+    AssertionResult.setFailure(true)
+    AssertionResult.setFailureMessage('Respuesta inesperada o formato invalido')
+}</stringProp>
+          </JSR223Assertion>
+          <hashTree />
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="API-03 Contrato OpenAPI" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments" />
+          </elementProp>
+          <stringProp name="HTTPSampler.path">/openapi.json</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="0">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree />
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Respuesta en 18000 ms o menos" enabled="true">
+            <stringProp name="DurationAssertion.duration">18000</stringProp>
+          </DurationAssertion>
+          <hashTree />
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Validar respuesta y correlacion" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters" />
+            <stringProp name="filename" />
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">if (prev.getResponseCode() != '200') return
+def verify = { ok, message -&gt;
+    if (!ok) {
+        AssertionResult.setFailure(true)
+        AssertionResult.setFailureMessage(message)
+    }
+    ok
+}
+try {
+    def body = new groovy.json.JsonSlurper().parseText(prev.getResponseDataAsString())
+def validId = { value -&gt; value instanceof String &amp;&amp; value ==~ /[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}/ }
+
+verify(body.openapi?.startsWith('3.') &amp;&amp; body.paths?.containsKey('/api/search/image'),
+       'Falta la ruta esperada en el contrato OpenAPI')
+} catch (Exception ignored) {
+    AssertionResult.setFailure(true)
+    AssertionResult.setFailureMessage('Respuesta inesperada o formato invalido')
+}</stringProp>
+          </JSR223Assertion>
+          <hashTree />
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="API-04 Preflight CORS" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments" />
+          </elementProp>
+          <stringProp name="HTTPSampler.path">/api/search/text</stringProp>
+          <stringProp name="HTTPSampler.method">OPTIONS</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Cabeceras de la peticion" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">https://visiontext-sigma.vercel.app</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Access-Control-Request-Method</stringProp>
+                <stringProp name="Header.value">POST</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Access-Control-Request-Headers</stringProp>
+                <stringProp name="Header.value">content-type</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree />
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="0">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree />
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Respuesta en 18000 ms o menos" enabled="true">
+            <stringProp name="DurationAssertion.duration">18000</stringProp>
+          </DurationAssertion>
+          <hashTree />
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Validar respuesta y correlacion" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters" />
+            <stringProp name="filename" />
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">if (prev.getResponseCode() != '200') return
+def verify = { ok, message -&gt;
+    if (!ok) {
+        AssertionResult.setFailure(true)
+        AssertionResult.setFailureMessage(message)
+    }
+    ok
+}
+try {
+    def origin = 'https://visiontext-sigma.vercel.app'
+verify(prev.getResponseHeaders().readLines().any { it.trim().equalsIgnoreCase('Access-Control-Allow-Origin: ' + origin) },
+       'No se encontro el origen autorizado en CORS')
+} catch (Exception ignored) {
+    AssertionResult.setFailure(true)
+    AssertionResult.setFailureMessage('Respuesta inesperada o formato invalido')
+}</stringProp>
+          </JSR223Assertion>
+          <hashTree />
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ERR-01 Texto vacio (422)" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name" />
+                <stringProp name="Argument.value">{"query":""}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.path">/api/search/text</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Cabeceras de la peticion" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree />
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 422" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="0">422</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree />
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Respuesta en 18000 ms o menos" enabled="true">
+            <stringProp name="DurationAssertion.duration">18000</stringProp>
+          </DurationAssertion>
+          <hashTree />
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Validar respuesta y correlacion" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters" />
+            <stringProp name="filename" />
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">if (prev.getResponseCode() != '422') return
+def verify = { ok, message -&gt;
+    if (!ok) {
+        AssertionResult.setFailure(true)
+        AssertionResult.setFailureMessage(message)
+    }
+    ok
+}
+try {
+    def body = new groovy.json.JsonSlurper().parseText(prev.getResponseDataAsString())
+def validId = { value -&gt; value instanceof String &amp;&amp; value ==~ /[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}/ }
+
+verify(body.detail instanceof List &amp;&amp; body.detail.any { it.loc?.contains('query') },
+       'Se esperaba un error para el campo query')
+} catch (Exception ignored) {
+    AssertionResult.setFailure(true)
+    AssertionResult.setFailureMessage('Respuesta inesperada o formato invalido')
+}</stringProp>
+          </JSR223Assertion>
+          <hashTree />
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ERR-02 Tipo de archivo incorrecto (400)" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments" />
+          </elementProp>
+          <stringProp name="HTTPSampler.path">/api/search/image</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">true</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">true</boolProp>
+          <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
+            <collectionProp name="HTTPFileArgs.files">
+              <elementProp name="" elementType="HTTPFileArg">
+                <stringProp name="File.path">${__P(INVALID_FILE,../../data/no-imagen.txt)}</stringProp>
+                <stringProp name="File.paramname">image</stringProp>
+                <stringProp name="File.mimetype">text/plain</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 400" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="0">400</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree />
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Respuesta en 18000 ms o menos" enabled="true">
+            <stringProp name="DurationAssertion.duration">18000</stringProp>
+          </DurationAssertion>
+          <hashTree />
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Validar respuesta y correlacion" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters" />
+            <stringProp name="filename" />
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">if (prev.getResponseCode() != '400') return
+def verify = { ok, message -&gt;
+    if (!ok) {
+        AssertionResult.setFailure(true)
+        AssertionResult.setFailureMessage(message)
+    }
+    ok
+}
+try {
+    def body = new groovy.json.JsonSlurper().parseText(prev.getResponseDataAsString())
+def validId = { value -&gt; value instanceof String &amp;&amp; value ==~ /[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}/ }
+verify(body.detail?.contains('debe ser una imagen'), 'Tipo MIME no rechazado')
+} catch (Exception ignored) {
+    AssertionResult.setFailure(true)
+    AssertionResult.setFailureMessage('Respuesta inesperada o formato invalido')
+}</stringProp>
+          </JSR223Assertion>
+          <hashTree />
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ERR-03 Original inexistente (404)" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments" />
+          </elementProp>
+          <stringProp name="HTTPSampler.path">/api/images/00000000-0000-4000-8000-000000000000</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 404" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="0">404</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree />
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Respuesta en 18000 ms o menos" enabled="true">
+            <stringProp name="DurationAssertion.duration">18000</stringProp>
+          </DurationAssertion>
+          <hashTree />
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Validar respuesta y correlacion" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters" />
+            <stringProp name="filename" />
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">if (prev.getResponseCode() != '404') return
+def verify = { ok, message -&gt;
+    if (!ok) {
+        AssertionResult.setFailure(true)
+        AssertionResult.setFailureMessage(message)
+    }
+    ok
+}
+try {
+    def body = new groovy.json.JsonSlurper().parseText(prev.getResponseDataAsString())
+def validId = { value -&gt; value instanceof String &amp;&amp; value ==~ /[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}/ }
+verify(body.detail == 'Imagen no encontrada', 'Detalle HTTP 404 incorrecto')
+} catch (Exception ignored) {
+    AssertionResult.setFailure(true)
+    AssertionResult.setFailureMessage('Respuesta inesperada o formato invalido')
+}</stringProp>
+          </JSR223Assertion>
+          <hashTree />
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ERR-04 Miniatura inexistente (404)" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments" />
+          </elementProp>
+          <stringProp name="HTTPSampler.path">/api/thumbnails/00000000-0000-4000-8000-000000000000</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 404" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="0">404</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree />
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Respuesta en 18000 ms o menos" enabled="true">
+            <stringProp name="DurationAssertion.duration">18000</stringProp>
+          </DurationAssertion>
+          <hashTree />
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Validar respuesta y correlacion" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters" />
+            <stringProp name="filename" />
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">if (prev.getResponseCode() != '404') return
+def verify = { ok, message -&gt;
+    if (!ok) {
+        AssertionResult.setFailure(true)
+        AssertionResult.setFailureMessage(message)
+    }
+    ok
+}
+try {
+    def body = new groovy.json.JsonSlurper().parseText(prev.getResponseDataAsString())
+def validId = { value -&gt; value instanceof String &amp;&amp; value ==~ /[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}/ }
+verify(body.detail == 'Imagen no encontrada', 'Detalle HTTP 404 incorrecto')
+} catch (Exception ignored) {
+    AssertionResult.setFailure(true)
+    AssertionResult.setFailureMessage('Respuesta inesperada o formato invalido')
+}</stringProp>
+          </JSR223Assertion>
+          <hashTree />
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ERR-05 Catalogo sin sesion (401)" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments" />
+          </elementProp>
+          <stringProp name="HTTPSampler.path">/api/admin/images</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 401" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="0">401</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree />
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Respuesta en 18000 ms o menos" enabled="true">
+            <stringProp name="DurationAssertion.duration">18000</stringProp>
+          </DurationAssertion>
+          <hashTree />
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Validar respuesta y correlacion" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters" />
+            <stringProp name="filename" />
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">if (prev.getResponseCode() != '401') return
+def verify = { ok, message -&gt;
+    if (!ok) {
+        AssertionResult.setFailure(true)
+        AssertionResult.setFailureMessage(message)
+    }
+    ok
+}
+try {
+    def body = new groovy.json.JsonSlurper().parseText(prev.getResponseDataAsString())
+def validId = { value -&gt; value instanceof String &amp;&amp; value ==~ /[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}/ }
+verify(body.detail == 'No autorizado', 'Detalle HTTP 401 incorrecto')
+} catch (Exception ignored) {
+    AssertionResult.setFailure(true)
+    AssertionResult.setFailureMessage('Respuesta inesperada o formato invalido')
+}</stringProp>
+          </JSR223Assertion>
+          <hashTree />
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ERR-06 Subida sin sesion (401)" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments" />
+          </elementProp>
+          <stringProp name="HTTPSampler.path">/api/upload</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 401" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="0">401</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree />
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Respuesta en 18000 ms o menos" enabled="true">
+            <stringProp name="DurationAssertion.duration">18000</stringProp>
+          </DurationAssertion>
+          <hashTree />
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Validar respuesta y correlacion" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters" />
+            <stringProp name="filename" />
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">if (prev.getResponseCode() != '401') return
+def verify = { ok, message -&gt;
+    if (!ok) {
+        AssertionResult.setFailure(true)
+        AssertionResult.setFailureMessage(message)
+    }
+    ok
+}
+try {
+    def body = new groovy.json.JsonSlurper().parseText(prev.getResponseDataAsString())
+def validId = { value -&gt; value instanceof String &amp;&amp; value ==~ /[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}/ }
+verify(body.detail == 'No autorizado', 'Detalle HTTP 401 incorrecto')
+} catch (Exception ignored) {
+    AssertionResult.setFailure(true)
+    AssertionResult.setFailureMessage('Respuesta inesperada o formato invalido')
+}</stringProp>
+          </JSR223Assertion>
+          <hashTree />
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="APK-01 Descarga de APK / respuesta local" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments" />
+          </elementProp>
+          <stringProp name="HTTPSampler.path">/api/app/download</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="0">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree />
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Respuesta en 25000 ms o menos" enabled="true">
+            <stringProp name="DurationAssertion.duration">25000</stringProp>
+          </DurationAssertion>
+          <hashTree />
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Validar respuesta y correlacion" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters" />
+            <stringProp name="filename" />
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">if (prev.getResponseCode() != '200') return
+def verify = { ok, message -&gt;
+    if (!ok) {
+        AssertionResult.setFailure(true)
+        AssertionResult.setFailureMessage(message)
+    }
+    ok
+}
+try {
+    def data = prev.getResponseData()
+verify(prev.getContentType().startsWith('application/vnd.android.package-archive') &amp;&amp;
+       data.length &gt; 4 &amp;&amp; data[0] == 80 &amp;&amp; data[1] == 75, 'APK MIME o firma ZIP incorrectos')
+} catch (Exception ignored) {
+    AssertionResult.setFailure(true)
+    AssertionResult.setFailureMessage('Respuesta inesperada o formato invalido')
+}</stringProp>
+          </JSR223Assertion>
+          <hashTree />
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

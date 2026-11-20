@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite failures="0" name="features/05-descarga-apk.feature" skipped="0" tests="1" time="1.331378">
+  <testcase classname="features.05-descarga-apk" name="APK-01 El despliegue entrega una APK de VisionText con los encabezados esperados" time="1.331378" />
+</testsuite>

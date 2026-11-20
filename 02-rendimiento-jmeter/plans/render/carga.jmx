@@ -1,0 +1,431 @@
+<?xml version='1.0' encoding='utf-8'?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="VisionText | render | carga" enabled="true">
+      <stringProp name="TestPlan.comments">Plan HTTP generado desde scripts/perfiles.py. Usa el lanzador para configurar datos y reportes.</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments">
+        <collectionProp name="Arguments.arguments" />
+      </elementProp>
+    </TestPlan>
+    <hashTree>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="API y timeouts" enabled="true">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+          <collectionProp name="Arguments.arguments" />
+        </elementProp>
+        <stringProp name="HTTPSampler.domain">visiontext-backend.onrender.com</stringProp>
+        <stringProp name="HTTPSampler.protocol">https</stringProp>
+        <stringProp name="HTTPSampler.port">443</stringProp>
+        <stringProp name="HTTPSampler.connect_timeout">12000</stringProp>
+        <stringProp name="HTTPSampler.response_timeout">65000</stringProp>
+        <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+        <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+        <stringProp name="HTTPSampler.concurrentPool">1</stringProp>
+      </ConfigTestElement>
+      <hashTree />
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="texto | 1 VU" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Iteraciones">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">4</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">2</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration" />
+        <stringProp name="ThreadGroup.delay" />
+      </ThreadGroup>
+      <hashTree>
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Pausa del usuario entre peticiones" enabled="true">
+          <stringProp name="ConstantTimer.delay">900</stringProp>
+        </ConstantTimer>
+        <hashTree />
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Datos del catalogo desde CSV" enabled="true">
+          <stringProp name="filename">${__P(QUERY_CSV,../../data/consultas.csv)}</stringProp>
+          <stringProp name="fileEncoding">UTF-8</stringProp>
+          <stringProp name="variableNames" />
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <stringProp name="delimiter">,</stringProp>
+          <boolProp name="quotedData">true</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">shareMode.group</stringProp>
+        </CSVDataSet>
+        <hashTree />
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="BUS-01 Busqueda por texto" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name" />
+                <stringProp name="Argument.value">${textBody}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.path">/api/search/text</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Cabeceras de la peticion" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree />
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Preparar variables de la peticion" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters" />
+            <stringProp name="filename" />
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.remove('textId')
+vars.put('textBody', groovy.json.JsonOutput.toJson([
+  query: vars.get('consulta'), limit: vars.get('limite').toInteger(),
+  threshold: vars.get('umbral').toBigDecimal()
+]))</stringProp>
+          </JSR223PreProcessor>
+          <hashTree />
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="0">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree />
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Respuesta en 40000 ms o menos" enabled="true">
+            <stringProp name="DurationAssertion.duration">40000</stringProp>
+          </DurationAssertion>
+          <hashTree />
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Validar respuesta y correlacion" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters" />
+            <stringProp name="filename" />
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">if (prev.getResponseCode() != '200') return
+def verify = { ok, message -&gt;
+    if (!ok) {
+        AssertionResult.setFailure(true)
+        AssertionResult.setFailureMessage(message)
+    }
+    ok
+}
+try {
+    def body = new groovy.json.JsonSlurper().parseText(prev.getResponseDataAsString())
+def validId = { value -&gt; value instanceof String &amp;&amp; value ==~ /[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}/ }
+
+def rows = body.results
+if (verify(rows instanceof List &amp;&amp; rows.size() &gt; 0 &amp;&amp; rows.size() &lt;= vars.get('limite').toInteger() &amp;&amp;
+    rows.size() == body.total_count &amp;&amp; body.query_time instanceof Number &amp;&amp; body.query_time &gt;= 0 &amp;&amp;
+    rows.every { validId(it.id) &amp;&amp; it.filename instanceof String &amp;&amp; it.similarity_score instanceof Number } &amp;&amp;
+    rows.collect { it.id }.unique().size() == rows.size(), 'Esquema de busqueda, conteos o IDs incorrectos')) {
+    def item = rows.find { item -&gt; item.filename.startsWith(vars.get('clase')) }
+    if (verify(item != null, 'La consulta no recupero una coincidencia esperada del CSV')) {
+        vars.put('textId', item.id)
+    }
+}
+} catch (Exception ignored) {
+    AssertionResult.setFailure(true)
+    AssertionResult.setFailureMessage('Respuesta inesperada o formato invalido')
+}</stringProp>
+          </JSR223Assertion>
+          <hashTree />
+        </hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Si se obtuvo textId" enabled="true">
+          <stringProp name="IfController.condition">${__groovy(vars.get('textId') != null)}</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+          <boolProp name="IfController.useExpression">true</boolProp>
+        </IfController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="MED-01 Miniatura de busqueda textual" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments" />
+            </elementProp>
+            <stringProp name="HTTPSampler.path">/api/thumbnails/${textId}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 200" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="0">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+            </ResponseAssertion>
+            <hashTree />
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Respuesta en 25000 ms o menos" enabled="true">
+              <stringProp name="DurationAssertion.duration">25000</stringProp>
+            </DurationAssertion>
+            <hashTree />
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Validar respuesta y correlacion" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters" />
+              <stringProp name="filename" />
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">if (prev.getResponseCode() != '200') return
+def verify = { ok, message -&gt;
+    if (!ok) {
+        AssertionResult.setFailure(true)
+        AssertionResult.setFailureMessage(message)
+    }
+    ok
+}
+try {
+    def data = prev.getResponseData()
+verify(prev.getContentType().startsWith('image/jpeg') &amp;&amp; data.length &gt; 4 &amp;&amp;
+       (data[0] &amp; 255) == 255 &amp;&amp; (data[1] &amp; 255) == 216, 'JPEG ausente o invalido')
+} catch (Exception ignored) {
+    AssertionResult.setFailure(true)
+    AssertionResult.setFailureMessage('Respuesta inesperada o formato invalido')
+}</stringProp>
+            </JSR223Assertion>
+            <hashTree />
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="MED-02 Original de busqueda textual" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments" />
+            </elementProp>
+            <stringProp name="HTTPSampler.path">/api/images/${textId}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 200" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="0">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+            </ResponseAssertion>
+            <hashTree />
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Respuesta en 25000 ms o menos" enabled="true">
+              <stringProp name="DurationAssertion.duration">25000</stringProp>
+            </DurationAssertion>
+            <hashTree />
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Validar respuesta y correlacion" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters" />
+              <stringProp name="filename" />
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">if (prev.getResponseCode() != '200') return
+def verify = { ok, message -&gt;
+    if (!ok) {
+        AssertionResult.setFailure(true)
+        AssertionResult.setFailureMessage(message)
+    }
+    ok
+}
+try {
+    def data = prev.getResponseData()
+verify(prev.getContentType().startsWith('image/jpeg') &amp;&amp; data.length &gt; 4 &amp;&amp;
+       (data[0] &amp; 255) == 255 &amp;&amp; (data[1] &amp; 255) == 216, 'JPEG ausente o invalido')
+} catch (Exception ignored) {
+    AssertionResult.setFailure(true)
+    AssertionResult.setFailureMessage('Respuesta inesperada o formato invalido')
+}</stringProp>
+            </JSR223Assertion>
+            <hashTree />
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="imagen | 1 VU" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Iteraciones">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">4</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">2</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration" />
+        <stringProp name="ThreadGroup.delay" />
+      </ThreadGroup>
+      <hashTree>
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Pausa del usuario entre peticiones" enabled="true">
+          <stringProp name="ConstantTimer.delay">900</stringProp>
+        </ConstantTimer>
+        <hashTree />
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Datos del catalogo desde CSV" enabled="true">
+          <stringProp name="filename">${__P(QUERY_CSV,../../data/consultas.csv)}</stringProp>
+          <stringProp name="fileEncoding">UTF-8</stringProp>
+          <stringProp name="variableNames" />
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <stringProp name="delimiter">,</stringProp>
+          <boolProp name="quotedData">true</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">shareMode.group</stringProp>
+        </CSVDataSet>
+        <hashTree />
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="BUS-02 Busqueda por imagen" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="limit" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">limit</stringProp>
+                <stringProp name="Argument.value">${limite}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="threshold" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">threshold</stringProp>
+                <stringProp name="Argument.value">${umbral}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.path">/api/search/image</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">true</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">true</boolProp>
+          <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
+            <collectionProp name="HTTPFileArgs.files">
+              <elementProp name="" elementType="HTTPFileArg">
+                <stringProp name="File.path">${__P(DATASET,../../../../VisionText-backend/dataset_final)}/${archivo}</stringProp>
+                <stringProp name="File.paramname">image</stringProp>
+                <stringProp name="File.mimetype">image/jpeg</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Preparar variables de la peticion" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters" />
+            <stringProp name="filename" />
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.remove('imageId')</stringProp>
+          </JSR223PreProcessor>
+          <hashTree />
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="0">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree />
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Respuesta en 45000 ms o menos" enabled="true">
+            <stringProp name="DurationAssertion.duration">45000</stringProp>
+          </DurationAssertion>
+          <hashTree />
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Validar respuesta y correlacion" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters" />
+            <stringProp name="filename" />
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">if (prev.getResponseCode() != '200') return
+def verify = { ok, message -&gt;
+    if (!ok) {
+        AssertionResult.setFailure(true)
+        AssertionResult.setFailureMessage(message)
+    }
+    ok
+}
+try {
+    def body = new groovy.json.JsonSlurper().parseText(prev.getResponseDataAsString())
+def validId = { value -&gt; value instanceof String &amp;&amp; value ==~ /[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}/ }
+
+def rows = body.results
+if (verify(rows instanceof List &amp;&amp; rows.size() &gt; 0 &amp;&amp; rows.size() &lt;= vars.get('limite').toInteger() &amp;&amp;
+    rows.size() == body.total_count &amp;&amp; body.query_time instanceof Number &amp;&amp; body.query_time &gt;= 0 &amp;&amp;
+    rows.every { validId(it.id) &amp;&amp; it.filename instanceof String &amp;&amp; it.similarity_score instanceof Number } &amp;&amp;
+    rows.collect { it.id }.unique().size() == rows.size(), 'Esquema de busqueda, conteos o IDs incorrectos')) {
+    def item = rows.find { item -&gt; item.filename == vars.get('archivo') }
+    if (verify(item != null, 'La consulta no recupero una coincidencia esperada del CSV')) {
+        vars.put('imageId', item.id)
+    }
+}
+} catch (Exception ignored) {
+    AssertionResult.setFailure(true)
+    AssertionResult.setFailureMessage('Respuesta inesperada o formato invalido')
+}</stringProp>
+          </JSR223Assertion>
+          <hashTree />
+        </hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Si se obtuvo imageId" enabled="true">
+          <stringProp name="IfController.condition">${__groovy(vars.get('imageId') != null)}</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+          <boolProp name="IfController.useExpression">true</boolProp>
+        </IfController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="MED-03 Miniatura de busqueda visual" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments" />
+            </elementProp>
+            <stringProp name="HTTPSampler.path">/api/thumbnails/${imageId}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 200" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="0">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+            </ResponseAssertion>
+            <hashTree />
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Respuesta en 25000 ms o menos" enabled="true">
+              <stringProp name="DurationAssertion.duration">25000</stringProp>
+            </DurationAssertion>
+            <hashTree />
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Validar respuesta y correlacion" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters" />
+              <stringProp name="filename" />
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">if (prev.getResponseCode() != '200') return
+def verify = { ok, message -&gt;
+    if (!ok) {
+        AssertionResult.setFailure(true)
+        AssertionResult.setFailureMessage(message)
+    }
+    ok
+}
+try {
+    def data = prev.getResponseData()
+verify(prev.getContentType().startsWith('image/jpeg') &amp;&amp; data.length &gt; 4 &amp;&amp;
+       (data[0] &amp; 255) == 255 &amp;&amp; (data[1] &amp; 255) == 216, 'JPEG ausente o invalido')
+} catch (Exception ignored) {
+    AssertionResult.setFailure(true)
+    AssertionResult.setFailureMessage('Respuesta inesperada o formato invalido')
+}</stringProp>
+            </JSR223Assertion>
+            <hashTree />
+          </hashTree>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

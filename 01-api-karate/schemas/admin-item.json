@@ -1,0 +1,15 @@
+{
+  "id": "#uuid",
+  "filename": "#string? _.trim().length > 0",
+  "description": "#? nullableText(_)",
+  "thumbnail_url": "#string",
+  "metadata": {
+    "width": "#number? positiveInt(_)",
+    "height": "#number? positiveInt(_)",
+    "size": "#number? positiveInt(_)",
+    "format": "#string? _.trim().length > 0",
+    "created_at": "#string? !isNaN(Date.parse(_))",
+    "similarity_score": "#? _ === null || boundedScore(_)"
+  },
+  "vector_id": "#uuid"
+}

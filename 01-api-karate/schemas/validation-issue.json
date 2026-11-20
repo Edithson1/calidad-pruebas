@@ -1,0 +1,8 @@
+{
+  "loc": "#[]",
+  "msg": "#string? _.length > 0",
+  "type": "#string? _.length > 0",
+  "input": "##ignore",
+  "ctx": "##object",
+  "url": "##string"
+}

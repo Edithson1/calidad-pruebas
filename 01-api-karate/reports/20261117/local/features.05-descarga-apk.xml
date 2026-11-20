@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite failures="0" name="features/05-descarga-apk.feature" skipped="0" tests="1" time="0.011214">
+  <testcase classname="features.05-descarga-apk" name="APK-02 El ambiente con almacenamiento S3 responde que la descarga requiere Drive" time="0.011214" />
+</testsuite>

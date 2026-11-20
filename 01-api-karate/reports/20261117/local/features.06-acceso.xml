@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite failures="0" name="features/06-acceso.feature" skipped="0" tests="6" time="0.086788">
+  <testcase classname="features.06-acceso" name="AUTH-01 Exige Bearer para get api/admin/images" time="0.011932" />
+  <testcase classname="features.06-acceso" name="AUTH-02 Exige Bearer para get api/admin/storage" time="0.009564" />
+  <testcase classname="features.06-acceso" name="AUTH-03 Exige Bearer para post api/upload" time="0.009746" />
+  <testcase classname="features.06-acceso" name="AUTH-04 Exige Bearer para delete api/admin/images" time="0.012281" />
+  <testcase classname="features.06-acceso" name="AUTH-05 Rechaza un token con formato inválido" time="0.011525" />
+  <testcase classname="features.06-acceso" name="AUTH-06 Login con formulario incompleto retorna 422" time="0.031738" />
+</testsuite>

@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite failures="0" name="features/10-limite-login.feature" skipped="0" tests="1" time="9.541123">
+  <testcase classname="features.10-limite-login" name="RATE-01 Después de agotar los intentos devuelve 429 con Retry-After y luego se recupera" time="9.541123" />
+</testsuite>

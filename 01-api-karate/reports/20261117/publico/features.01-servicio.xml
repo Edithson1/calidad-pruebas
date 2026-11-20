@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite failures="0" name="features/01-servicio.feature" skipped="0" tests="5" time="4.709939">
+  <testcase classname="features.01-servicio" name="SRV-01 La raíz identifica la API y sus capacidades" time="1.697883" />
+  <testcase classname="features.01-servicio" name="SRV-02 Salud comprueba dependencias y consistencia del índice" time="1.660209" />
+  <testcase classname="features.01-servicio" name="SRV-03 El OpenAPI documenta los endpoints y métodos de la suite" time="0.336824" />
+  <testcase classname="features.01-servicio" name="SRV-04 CORS permite el origen configurado para VisionText" time="0.349179" />
+  <testcase classname="features.01-servicio" name="SRV-05 CORS rechaza un origen ajeno" time="0.665845" />
+</testsuite>

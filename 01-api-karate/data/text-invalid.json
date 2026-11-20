@@ -1,0 +1,10 @@
+[
+  {"code":"TXT-02","case":"consulta ausente","body":{},"field":"query","error":"missing"},
+  {"code":"TXT-03","case":"consulta vacía","body":{"query":""},"field":"query","error":"string_too_short"},
+  {"code":"TXT-04","case":"consulta mayor a 500 caracteres","body":{"query":"#('á'.repeat(501))"},"field":"query","error":"string_too_long"},
+  {"code":"TXT-05","case":"consulta no textual","body":{"query":123},"field":"query","error":"string_type"},
+  {"code":"TXT-06","case":"límite debajo del mínimo","body":{"query":"elefante","limit":0},"field":"limit","error":"greater_than_equal"},
+  {"code":"TXT-07","case":"límite por encima del máximo","body":{"query":"elefante","limit":101},"field":"limit","error":"less_than_equal"},
+  {"code":"TXT-08","case":"umbral negativo","body":{"query":"elefante","threshold":-0.01},"field":"threshold","error":"greater_than_equal"},
+  {"code":"TXT-09","case":"umbral por encima de uno","body":{"query":"elefante","threshold":1.01},"field":"threshold","error":"less_than_equal"}
+]

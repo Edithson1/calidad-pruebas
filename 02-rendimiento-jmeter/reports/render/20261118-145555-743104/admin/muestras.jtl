@@ -1,0 +1,5 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,Latency,IdleTime,Connect
+1795031960132,1971,ADM-01 Login de administrador,200,HTTP 200,admin | 1 VU 1-1,text,true,,185,48,1,1,1884,0,0
+1795031963166,985,ADM-02 Primera pagina de catalogo,200,HTTP 200,admin | 1 VU 1-1,text,true,,2011,0,1,1,982,0,0
+1795031965162,908,ADM-03 Segunda pagina de catalogo,200,HTTP 200,admin | 1 VU 1-1,text,true,,2011,0,1,1,900,0,0
+1795031967025,4746,ADM-04 Estado de almacenamiento,200,HTTP 200,admin | 1 VU 1-1,text,true,,384,0,1,1,4736,0,0

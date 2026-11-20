@@ -1,0 +1,19 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,Latency,IdleTime,Connect
+1795031981343,1223,WEB-01 Documento HTML,200,OK,web | 2 VU 1-2,text,true,,1224,130,2,2,1213,0,725
+1795031981203,1362,WEB-01 Documento HTML,200,OK,web | 2 VU 1-1,text,true,,1223,130,2,2,1352,0,864
+1795031983479,410,WEB-02 Bundle JavaScript,200,OK,web | 2 VU 1-2,text,true,,303470,154,2,2,278,0,0
+1795031983479,431,WEB-02 Bundle JavaScript,200,OK,web | 2 VU 1-1,text,true,,303469,154,2,2,286,0,0
+1795031984396,248,WEB-03 Hoja CSS,200,OK,web | 2 VU 1-1,text,true,,38892,155,2,2,246,0,0
+1795031984394,304,WEB-03 Hoja CSS,200,OK,web | 2 VU 1-2,text,true,,38891,155,2,2,297,0,0
+1795031985143,96,WEB-01 Documento HTML,200,OK,web | 2 VU 1-1,text,true,,1223,130,2,2,96,0,0
+1795031985158,98,WEB-01 Documento HTML,200,OK,web | 2 VU 1-2,text,true,,1223,130,2,2,98,0,0
+1795031985694,182,WEB-02 Bundle JavaScript,200,OK,web | 2 VU 1-1,text,true,,303469,154,2,2,99,0,0
+1795031985723,187,WEB-02 Bundle JavaScript,200,OK,web | 2 VU 1-2,text,true,,303469,154,2,2,101,0,0
+1795031986338,103,WEB-03 Hoja CSS,200,OK,web | 2 VU 1-1,text,true,,38891,155,2,2,98,0,0
+1795031986376,108,WEB-03 Hoja CSS,200,OK,web | 2 VU 1-2,text,true,,38891,155,2,2,98,0,0
+1795031986906,100,WEB-01 Documento HTML,200,OK,web | 2 VU 1-1,text,true,,1223,130,2,2,100,0,0
+1795031986938,166,WEB-01 Documento HTML,200,OK,web | 2 VU 1-2,text,true,,1223,130,2,2,166,0,0
+1795031987471,161,WEB-02 Bundle JavaScript,200,OK,web | 2 VU 1-1,text,true,,303469,154,2,2,98,0,0
+1795031987570,184,WEB-02 Bundle JavaScript,200,OK,web | 2 VU 1-2,text,true,,303469,154,2,2,124,0,0
+1795031988091,104,WEB-03 Hoja CSS,200,OK,web | 2 VU 1-1,text,true,,38891,155,2,2,96,0,0
+1795031988207,104,WEB-03 Hoja CSS,200,OK,web | 2 VU 1-2,text,true,,38891,155,1,1,96,0,0

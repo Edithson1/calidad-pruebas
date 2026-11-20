@@ -1,0 +1,75 @@
+{
+  "perfil": "admin",
+  "grupos": [
+    {
+      "flow": "admin",
+      "users": 2,
+      "loops": 3,
+      "ramp": 3,
+      "duration": 0,
+      "pause_ms": 450
+    }
+  ],
+  "estado": "APROBADO",
+  "muestras": 20,
+  "fallos": 0,
+  "error_pct": 0.0,
+  "ventana_con_muestras_s": 5.48,
+  "muestras_por_segundo": 3.65,
+  "max_hilos_registrados": 2,
+  "observaciones": [],
+  "operaciones": {
+    "ADM-01 Login de administrador": {
+      "muestras": 2,
+      "fallos": 0,
+      "codigos": {
+        "200": 2
+      },
+      "media_ms": 80.0,
+      "p95_ms": 97.0,
+      "max_ms": 97,
+      "limite_muestra_ms": 4500,
+      "objetivo_p95_ms": 2000,
+      "motivos": {}
+    },
+    "ADM-02 Primera pagina de catalogo": {
+      "muestras": 6,
+      "fallos": 0,
+      "codigos": {
+        "200": 6
+      },
+      "media_ms": 31.67,
+      "p95_ms": 41.0,
+      "max_ms": 41,
+      "limite_muestra_ms": 4500,
+      "objetivo_p95_ms": 2000,
+      "motivos": {}
+    },
+    "ADM-03 Segunda pagina de catalogo": {
+      "muestras": 6,
+      "fallos": 0,
+      "codigos": {
+        "200": 6
+      },
+      "media_ms": 29.5,
+      "p95_ms": 33.0,
+      "max_ms": 33,
+      "limite_muestra_ms": 4500,
+      "objetivo_p95_ms": 2000,
+      "motivos": {}
+    },
+    "ADM-04 Estado de almacenamiento": {
+      "muestras": 6,
+      "fallos": 0,
+      "codigos": {
+        "200": 6
+      },
+      "media_ms": 100.33,
+      "p95_ms": 112.0,
+      "max_ms": 112,
+      "limite_muestra_ms": 4500,
+      "objetivo_p95_ms": 2000,
+      "motivos": {}
+    }
+  }
+}

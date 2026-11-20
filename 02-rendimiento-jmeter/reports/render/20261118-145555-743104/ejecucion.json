@@ -1,0 +1,543 @@
+{
+  "entorno": "render",
+  "inicio": "2026-11-18T14:55:55-05:00",
+  "api": "https://visiontext-backend.onrender.com",
+  "web": "https://visiontext-sigma.vercel.app",
+  "sistema_generador": "Windows-11-10.0.26200-SP0",
+  "procesadores_logicos": 12,
+  "arranque_api_local_ms": null,
+  "catalogo": {
+    "images_in_db": 1575,
+    "vectors_in_index": 1575,
+    "storage_provider": "google_drive",
+    "inference_backend": "onnx",
+    "model": "ViT-B-32 (openai)"
+  },
+  "perfiles": [
+    {
+      "perfil": "inicio",
+      "grupos": [
+        {
+          "flow": "inicio",
+          "users": 1,
+          "loops": 1,
+          "ramp": 1,
+          "duration": 0,
+          "pause_ms": 0
+        }
+      ],
+      "estado": "APROBADO",
+      "muestras": 1,
+      "fallos": 0,
+      "error_pct": 0.0,
+      "ventana_con_muestras_s": 54.738,
+      "muestras_por_segundo": 0.018,
+      "max_hilos_registrados": 1,
+      "observaciones": [],
+      "operaciones": {
+        "INI-01 Primer acceso a la API": {
+          "muestras": 1,
+          "fallos": 0,
+          "codigos": {
+            "200": 1
+          },
+          "media_ms": 54738.0,
+          "p95_ms": 54738.0,
+          "max_ms": 54738,
+          "limite_muestra_ms": 155000,
+          "objetivo_p95_ms": 155000,
+          "motivos": {}
+        }
+      }
+    },
+    {
+      "perfil": "rutas",
+      "grupos": [
+        {
+          "flow": "rutas",
+          "users": 1,
+          "loops": 1,
+          "ramp": 1,
+          "duration": 0,
+          "pause_ms": 0
+        }
+      ],
+      "estado": "APROBADO",
+      "muestras": 11,
+      "fallos": 0,
+      "error_pct": 0.0,
+      "ventana_con_muestras_s": 7.948,
+      "muestras_por_segundo": 1.384,
+      "max_hilos_registrados": 1,
+      "observaciones": [],
+      "operaciones": {
+        "API-01 Raiz": {
+          "muestras": 1,
+          "fallos": 0,
+          "codigos": {
+            "200": 1
+          },
+          "media_ms": 964.0,
+          "p95_ms": 964.0,
+          "max_ms": 964,
+          "limite_muestra_ms": 18000,
+          "objetivo_p95_ms": 10000,
+          "motivos": {}
+        },
+        "API-02 Salud y conteo del indice": {
+          "muestras": 1,
+          "fallos": 0,
+          "codigos": {
+            "200": 1
+          },
+          "media_ms": 1002.0,
+          "p95_ms": 1002.0,
+          "max_ms": 1002,
+          "limite_muestra_ms": 18000,
+          "objetivo_p95_ms": 10000,
+          "motivos": {}
+        },
+        "API-03 Contrato OpenAPI": {
+          "muestras": 1,
+          "fallos": 0,
+          "codigos": {
+            "200": 1
+          },
+          "media_ms": 219.0,
+          "p95_ms": 219.0,
+          "max_ms": 219,
+          "limite_muestra_ms": 18000,
+          "objetivo_p95_ms": 10000,
+          "motivos": {}
+        },
+        "API-04 Preflight CORS": {
+          "muestras": 1,
+          "fallos": 0,
+          "codigos": {
+            "200": 1
+          },
+          "media_ms": 194.0,
+          "p95_ms": 194.0,
+          "max_ms": 194,
+          "limite_muestra_ms": 18000,
+          "objetivo_p95_ms": 10000,
+          "motivos": {}
+        },
+        "APK-01 Descarga de APK / respuesta local": {
+          "muestras": 1,
+          "fallos": 0,
+          "codigos": {
+            "200": 1
+          },
+          "media_ms": 1514.0,
+          "p95_ms": 1514.0,
+          "max_ms": 1514,
+          "limite_muestra_ms": 25000,
+          "objetivo_p95_ms": 15000,
+          "motivos": {}
+        },
+        "ERR-01 Texto vacio (422)": {
+          "muestras": 1,
+          "fallos": 0,
+          "codigos": {
+            "422": 1
+          },
+          "media_ms": 221.0,
+          "p95_ms": 221.0,
+          "max_ms": 221,
+          "limite_muestra_ms": 18000,
+          "objetivo_p95_ms": 10000,
+          "motivos": {}
+        },
+        "ERR-02 Tipo de archivo incorrecto (400)": {
+          "muestras": 1,
+          "fallos": 0,
+          "codigos": {
+            "400": 1
+          },
+          "media_ms": 228.0,
+          "p95_ms": 228.0,
+          "max_ms": 228,
+          "limite_muestra_ms": 18000,
+          "objetivo_p95_ms": 10000,
+          "motivos": {}
+        },
+        "ERR-03 Original inexistente (404)": {
+          "muestras": 1,
+          "fallos": 0,
+          "codigos": {
+            "404": 1
+          },
+          "media_ms": 580.0,
+          "p95_ms": 580.0,
+          "max_ms": 580,
+          "limite_muestra_ms": 18000,
+          "objetivo_p95_ms": 10000,
+          "motivos": {}
+        },
+        "ERR-04 Miniatura inexistente (404)": {
+          "muestras": 1,
+          "fallos": 0,
+          "codigos": {
+            "404": 1
+          },
+          "media_ms": 510.0,
+          "p95_ms": 510.0,
+          "max_ms": 510,
+          "limite_muestra_ms": 18000,
+          "objetivo_p95_ms": 10000,
+          "motivos": {}
+        },
+        "ERR-05 Catalogo sin sesion (401)": {
+          "muestras": 1,
+          "fallos": 0,
+          "codigos": {
+            "401": 1
+          },
+          "media_ms": 207.0,
+          "p95_ms": 207.0,
+          "max_ms": 207,
+          "limite_muestra_ms": 18000,
+          "objetivo_p95_ms": 10000,
+          "motivos": {}
+        },
+        "ERR-06 Subida sin sesion (401)": {
+          "muestras": 1,
+          "fallos": 0,
+          "codigos": {
+            "401": 1
+          },
+          "media_ms": 183.0,
+          "p95_ms": 183.0,
+          "max_ms": 183,
+          "limite_muestra_ms": 18000,
+          "objetivo_p95_ms": 10000,
+          "motivos": {}
+        }
+      }
+    },
+    {
+      "perfil": "base",
+      "grupos": [
+        {
+          "flow": "busquedas",
+          "users": 1,
+          "loops": 3,
+          "ramp": 1,
+          "duration": 0,
+          "pause_ms": 600
+        }
+      ],
+      "estado": "APROBADO",
+      "muestras": 15,
+      "fallos": 0,
+      "error_pct": 0.0,
+      "ventana_con_muestras_s": 48.516,
+      "muestras_por_segundo": 0.309,
+      "max_hilos_registrados": 1,
+      "observaciones": [],
+      "operaciones": {
+        "BUS-01 Busqueda por texto": {
+          "muestras": 3,
+          "fallos": 0,
+          "codigos": {
+            "200": 3
+          },
+          "media_ms": 4217.0,
+          "p95_ms": 4628.0,
+          "max_ms": 4628,
+          "limite_muestra_ms": 40000,
+          "objetivo_p95_ms": 28000,
+          "motivos": {}
+        },
+        "BUS-02 Busqueda por imagen": {
+          "muestras": 3,
+          "fallos": 0,
+          "codigos": {
+            "200": 3
+          },
+          "media_ms": 5805.67,
+          "p95_ms": 5872.0,
+          "max_ms": 5872,
+          "limite_muestra_ms": 45000,
+          "objetivo_p95_ms": 32000,
+          "motivos": {}
+        },
+        "MED-01 Miniatura de busqueda textual": {
+          "muestras": 3,
+          "fallos": 0,
+          "codigos": {
+            "200": 3
+          },
+          "media_ms": 1089.67,
+          "p95_ms": 1223.0,
+          "max_ms": 1223,
+          "limite_muestra_ms": 25000,
+          "objetivo_p95_ms": 15000,
+          "motivos": {}
+        },
+        "MED-02 Original de busqueda textual": {
+          "muestras": 3,
+          "fallos": 0,
+          "codigos": {
+            "200": 3
+          },
+          "media_ms": 992.33,
+          "p95_ms": 1003.0,
+          "max_ms": 1003,
+          "limite_muestra_ms": 25000,
+          "objetivo_p95_ms": 15000,
+          "motivos": {}
+        },
+        "MED-03 Miniatura de busqueda visual": {
+          "muestras": 3,
+          "fallos": 0,
+          "codigos": {
+            "200": 3
+          },
+          "media_ms": 928.0,
+          "p95_ms": 938.0,
+          "max_ms": 938,
+          "limite_muestra_ms": 25000,
+          "objetivo_p95_ms": 15000,
+          "motivos": {}
+        }
+      }
+    },
+    {
+      "perfil": "carga",
+      "grupos": [
+        {
+          "flow": "texto",
+          "users": 1,
+          "loops": 4,
+          "ramp": 2,
+          "duration": 0,
+          "pause_ms": 900
+        },
+        {
+          "flow": "imagen",
+          "users": 1,
+          "loops": 4,
+          "ramp": 2,
+          "duration": 0,
+          "pause_ms": 900
+        }
+      ],
+      "estado": "APROBADO",
+      "muestras": 20,
+      "fallos": 0,
+      "error_pct": 0.0,
+      "ventana_con_muestras_s": 44.465,
+      "muestras_por_segundo": 0.45,
+      "max_hilos_registrados": 2,
+      "observaciones": [],
+      "operaciones": {
+        "BUS-01 Busqueda por texto": {
+          "muestras": 4,
+          "fallos": 0,
+          "codigos": {
+            "200": 4
+          },
+          "media_ms": 6408.0,
+          "p95_ms": 10329.0,
+          "max_ms": 10329,
+          "limite_muestra_ms": 40000,
+          "objetivo_p95_ms": 28000,
+          "motivos": {}
+        },
+        "BUS-02 Busqueda por imagen": {
+          "muestras": 4,
+          "fallos": 0,
+          "codigos": {
+            "200": 4
+          },
+          "media_ms": 6607.75,
+          "p95_ms": 6992.0,
+          "max_ms": 6992,
+          "limite_muestra_ms": 45000,
+          "objetivo_p95_ms": 32000,
+          "motivos": {}
+        },
+        "MED-01 Miniatura de busqueda textual": {
+          "muestras": 4,
+          "fallos": 0,
+          "codigos": {
+            "200": 4
+          },
+          "media_ms": 1062.5,
+          "p95_ms": 1230.0,
+          "max_ms": 1230,
+          "limite_muestra_ms": 25000,
+          "objetivo_p95_ms": 15000,
+          "motivos": {}
+        },
+        "MED-02 Original de busqueda textual": {
+          "muestras": 4,
+          "fallos": 0,
+          "codigos": {
+            "200": 4
+          },
+          "media_ms": 1122.5,
+          "p95_ms": 1185.0,
+          "max_ms": 1185,
+          "limite_muestra_ms": 25000,
+          "objetivo_p95_ms": 15000,
+          "motivos": {}
+        },
+        "MED-03 Miniatura de busqueda visual": {
+          "muestras": 4,
+          "fallos": 0,
+          "codigos": {
+            "200": 4
+          },
+          "media_ms": 1189.25,
+          "p95_ms": 1425.0,
+          "max_ms": 1425,
+          "limite_muestra_ms": 25000,
+          "objetivo_p95_ms": 15000,
+          "motivos": {}
+        }
+      }
+    },
+    {
+      "perfil": "admin",
+      "grupos": [
+        {
+          "flow": "admin",
+          "users": 1,
+          "loops": 1,
+          "ramp": 1,
+          "duration": 0,
+          "pause_ms": 900
+        }
+      ],
+      "estado": "APROBADO",
+      "muestras": 4,
+      "fallos": 0,
+      "error_pct": 0.0,
+      "ventana_con_muestras_s": 11.639,
+      "muestras_por_segundo": 0.344,
+      "max_hilos_registrados": 1,
+      "observaciones": [],
+      "operaciones": {
+        "ADM-01 Login de administrador": {
+          "muestras": 1,
+          "fallos": 0,
+          "codigos": {
+            "200": 1
+          },
+          "media_ms": 1971.0,
+          "p95_ms": 1971.0,
+          "max_ms": 1971,
+          "limite_muestra_ms": 60000,
+          "objetivo_p95_ms": 40000,
+          "motivos": {}
+        },
+        "ADM-02 Primera pagina de catalogo": {
+          "muestras": 1,
+          "fallos": 0,
+          "codigos": {
+            "200": 1
+          },
+          "media_ms": 985.0,
+          "p95_ms": 985.0,
+          "max_ms": 985,
+          "limite_muestra_ms": 60000,
+          "objetivo_p95_ms": 40000,
+          "motivos": {}
+        },
+        "ADM-03 Segunda pagina de catalogo": {
+          "muestras": 1,
+          "fallos": 0,
+          "codigos": {
+            "200": 1
+          },
+          "media_ms": 908.0,
+          "p95_ms": 908.0,
+          "max_ms": 908,
+          "limite_muestra_ms": 60000,
+          "objetivo_p95_ms": 40000,
+          "motivos": {}
+        },
+        "ADM-04 Estado de almacenamiento": {
+          "muestras": 1,
+          "fallos": 0,
+          "codigos": {
+            "200": 1
+          },
+          "media_ms": 4746.0,
+          "p95_ms": 4746.0,
+          "max_ms": 4746,
+          "limite_muestra_ms": 60000,
+          "objetivo_p95_ms": 40000,
+          "motivos": {}
+        }
+      }
+    },
+    {
+      "perfil": "web",
+      "grupos": [
+        {
+          "flow": "web",
+          "users": 2,
+          "loops": 3,
+          "ramp": 3,
+          "duration": 0,
+          "pause_ms": 450
+        }
+      ],
+      "estado": "APROBADO",
+      "muestras": 18,
+      "fallos": 0,
+      "error_pct": 0.0,
+      "ventana_con_muestras_s": 7.108,
+      "muestras_por_segundo": 2.532,
+      "max_hilos_registrados": 2,
+      "observaciones": [],
+      "operaciones": {
+        "WEB-01 Documento HTML": {
+          "muestras": 6,
+          "fallos": 0,
+          "codigos": {
+            "200": 6
+          },
+          "media_ms": 507.5,
+          "p95_ms": 1362.0,
+          "max_ms": 1362,
+          "limite_muestra_ms": 18000,
+          "objetivo_p95_ms": 11000,
+          "motivos": {}
+        },
+        "WEB-02 Bundle JavaScript": {
+          "muestras": 6,
+          "fallos": 0,
+          "codigos": {
+            "200": 6
+          },
+          "media_ms": 259.17,
+          "p95_ms": 431.0,
+          "max_ms": 431,
+          "limite_muestra_ms": 18000,
+          "objetivo_p95_ms": 11000,
+          "motivos": {}
+        },
+        "WEB-03 Hoja CSS": {
+          "muestras": 6,
+          "fallos": 0,
+          "codigos": {
+            "200": 6
+          },
+          "media_ms": 161.83,
+          "p95_ms": 304.0,
+          "max_ms": 304,
+          "limite_muestra_ms": 18000,
+          "objetivo_p95_ms": 11000,
+          "motivos": {}
+        }
+      }
+    }
+  ],
+  "observaciones": [],
+  "fin": "2026-11-18T14:59:51-05:00"
+}

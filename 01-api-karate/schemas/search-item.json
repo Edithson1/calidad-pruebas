@@ -1,0 +1,14 @@
+{
+  "id": "#uuid",
+  "filename": "#string? _.trim().length > 0",
+  "url": "#string",
+  "thumbnail_url": "#string",
+  "similarity_score": "#number? boundedScore(_)",
+  "description": "#? nullableText(_)",
+  "metadata": {
+    "width": "#number? positiveInt(_)",
+    "height": "#number? positiveInt(_)",
+    "size": "#number? positiveInt(_)",
+    "format": "#string? _.trim().length > 0"
+  }
+}

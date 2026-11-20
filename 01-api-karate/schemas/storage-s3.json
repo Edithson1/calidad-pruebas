@@ -1,0 +1,7 @@
+{
+  "status": "connected",
+  "provider": "s3",
+  "buckets": "#[] #string",
+  "images_bucket_count": "#number? nonnegativeInt(_)",
+  "thumbnails_bucket_count": "#number? nonnegativeInt(_)"
+}

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites name="pytest tests">
+  <testsuite name="pytest" errors="0" failures="0" skipped="0" tests="11" time="295.238" timestamp="2026-11-19T20:21:48.705852-05:00">
+    <testcase classname="tests.test_visiontext" name="test_APP_01_navegacion_nativa_en_las_cuatro_pestanas" time="39.471" />
+    <testcase classname="tests.test_visiontext" name="test_APP_02_busqueda_vacia_muestra_validacion" time="10.924" />
+    <testcase classname="tests.test_visiontext" name="test_APP_03_busqueda_textual_desliza_y_abre_original" time="56.354" />
+    <testcase classname="tests.test_visiontext" name="test_APP_04_busqueda_visual_recupera_la_foto_del_catalogo" time="30.289" />
+    <testcase classname="tests.test_visiontext" name="test_APP_05_cancelar_y_quitar_documento" time="19.319" />
+    <testcase classname="tests.test_visiontext" name="test_APP_06_subida_y_admin_requieren_autenticacion" time="12.561" />
+    <testcase classname="tests.test_visiontext" name="test_APP_07_servidor_rechaza_url_invalida_y_conserva_la_configuracion" time="16.128" />
+    <testcase classname="tests.test_visiontext" name="test_APP_08_probar_servidor_y_persistir_el_ajuste" time="14.457" />
+    <testcase classname="tests.test_visiontext" name="test_APP_09_login_catalogo_y_logout" time="20.726" />
+    <testcase classname="tests.test_visiontext" name="test_APP_10_credenciales_incorrectas_muestran_error" time="15.986" />
+    <testcase classname="tests.test_visiontext" name="test_APP_11_sube_y_elimina_solo_la_imagen_temporal" time="49.190" />
+  </testsuite>
+</testsuites>

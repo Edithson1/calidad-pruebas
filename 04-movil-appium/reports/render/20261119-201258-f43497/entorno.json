@@ -1,0 +1,11 @@
+{
+  "entorno": "render",
+  "backend": "https://visiontext-backend.onrender.com",
+  "apk": "VisionText.apk",
+  "sha256": "11dfd13ccec9034d97d2aef1e777e7365193a1a8838a5021b34aa3c1700e1c68",
+  "emulador": "VisionText_QA",
+  "dispositivo": "emulator-5562",
+  "android": "14",
+  "motor": "UiAutomator2",
+  "paquete": "pe.visiontext.app"
+}

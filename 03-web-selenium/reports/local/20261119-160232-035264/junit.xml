@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites name="pytest tests">
+  <testsuite name="pytest" errors="0" failures="0" skipped="0" tests="11" time="119.296" timestamp="2026-11-19T16:04:20.506417-05:00">
+    <testcase classname="tests.test_visiontext" name="test_WEB_01_brave_abre_visiontext_y_navega_por_menu" time="6.038" />
+    <testcase classname="tests.test_visiontext" name="test_WEB_02_busqueda_textual_abre_el_original" time="10.468" />
+    <testcase classname="tests.test_visiontext" name="test_WEB_03_busqueda_por_imagen_recupera_archivo_conocido" time="10.243" />
+    <testcase classname="tests.test_visiontext" name="test_WEB_04_quitar_previsualizacion_y_rechazar_archivo_de_texto" time="6.216" />
+    <testcase classname="tests.test_visiontext" name="test_WEB_05_subida_y_catalogo_exigen_sesion" time="5.629" />
+    <testcase classname="tests.test_visiontext" name="test_WEB_06_menu_en_ventana_estrecha" time="6.227" />
+    <testcase classname="tests.test_visiontext" name="test_WEB_07_descarga_apk_o_aviso_de_disponibilidad" time="5.595" />
+    <testcase classname="tests.test_visiontext" name="test_WEB_08_login_paginacion_recarga_y_cierre_de_sesion" time="13.004" />
+    <testcase classname="tests.test_visiontext" name="test_WEB_09_login_incorrecto_muestra_error" time="6.663" />
+    <testcase classname="tests.test_visiontext" name="test_WEB_10_subir_confirmar_y_borrar_imagen_temporal" time="19.223" />
+    <testcase classname="tests.test_visiontext" name="test_WEB_11_subida_muestra_archivo_invalido_y_baja_similitud" time="11.728" />
+  </testsuite>
+</testsuites>

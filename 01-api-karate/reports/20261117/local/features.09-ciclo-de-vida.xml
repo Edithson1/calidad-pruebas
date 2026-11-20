@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite failures="0" name="features/09-ciclo-de-vida.feature" skipped="0" tests="1" time="16.081108">
+  <testcase classname="features.09-ciclo-de-vida" name="CIC-01 Dos imágenes propias aparecen en el catálogo y se eliminan de PostgreSQL, FAISS y S3" time="16.081108" />
+</testsuite>

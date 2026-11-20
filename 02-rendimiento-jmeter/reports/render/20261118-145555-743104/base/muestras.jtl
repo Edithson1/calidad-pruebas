@@ -1,0 +1,16 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,Latency,IdleTime,Connect
+1795031846438,4628,BUS-01 Busqueda por texto,200,OK,busquedas | 1 VU 1-1,text,true,,1699,254,1,1,4626,0,719
+1795031852328,1080,MED-01 Miniatura de busqueda textual,200,OK,busquedas | 1 VU 1-1,bin,true,,13521,185,1,1,1069,0,0
+1795031854114,1003,MED-02 Original de busqueda textual,200,OK,busquedas | 1 VU 1-1,bin,true,,19362,181,1,1,992,0,0
+1795031855743,5828,BUS-02 Busqueda por imagen,200,OK,busquedas | 1 VU 1-1,text,true,,1699,13368,1,1,5823,0,0
+1795031862277,933,MED-03 Miniatura de busqueda visual,200,OK,busquedas | 1 VU 1-1,bin,true,,16231,185,1,1,920,0,0
+1795031863823,4189,BUS-01 Busqueda por texto,200,OK,busquedas | 1 VU 1-1,text,true,,1640,244,1,1,4189,0,0
+1795031868621,966,MED-01 Miniatura de busqueda textual,200,OK,busquedas | 1 VU 1-1,bin,true,,26464,185,1,1,953,0,0
+1795031870192,991,MED-02 Original de busqueda textual,200,OK,busquedas | 1 VU 1-1,bin,true,,38572,181,1,1,962,0,0
+1795031871798,5717,BUS-02 Busqueda por imagen,200,OK,busquedas | 1 VU 1-1,text,true,,1637,11425,1,1,5717,0,0
+1795031878124,938,MED-03 Miniatura de busqueda visual,200,OK,busquedas | 1 VU 1-1,bin,true,,13928,185,1,1,928,0,0
+1795031879679,3834,BUS-01 Busqueda por texto,200,OK,busquedas | 1 VU 1-1,text,true,,1637,243,1,1,3834,0,0
+1795031884128,1223,MED-01 Miniatura de busqueda textual,200,OK,busquedas | 1 VU 1-1,bin,true,,14225,185,1,1,1066,0,0
+1795031885956,983,MED-02 Original de busqueda textual,200,OK,busquedas | 1 VU 1-1,bin,true,,20583,181,1,1,977,0,0
+1795031887553,5872,BUS-02 Busqueda por imagen,200,OK,busquedas | 1 VU 1-1,text,true,,1631,12976,1,1,5872,0,0
+1795031894041,913,MED-03 Miniatura de busqueda visual,200,OK,busquedas | 1 VU 1-1,bin,true,,15761,185,1,1,902,0,0

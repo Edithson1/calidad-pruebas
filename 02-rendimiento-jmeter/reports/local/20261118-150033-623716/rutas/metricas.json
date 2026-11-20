@@ -1,0 +1,166 @@
+{
+  "perfil": "rutas",
+  "grupos": [
+    {
+      "flow": "rutas",
+      "users": 1,
+      "loops": 1,
+      "ramp": 1,
+      "duration": 0,
+      "pause_ms": 0
+    }
+  ],
+  "estado": "APROBADO",
+  "muestras": 11,
+  "fallos": 0,
+  "error_pct": 0.0,
+  "ventana_con_muestras_s": 2.472,
+  "muestras_por_segundo": 4.45,
+  "max_hilos_registrados": 1,
+  "observaciones": [],
+  "operaciones": {
+    "API-01 Raiz": {
+      "muestras": 1,
+      "fallos": 0,
+      "codigos": {
+        "200": 1
+      },
+      "media_ms": 86.0,
+      "p95_ms": 86.0,
+      "max_ms": 86,
+      "limite_muestra_ms": 3500,
+      "objetivo_p95_ms": 1500,
+      "motivos": {}
+    },
+    "API-02 Salud y conteo del indice": {
+      "muestras": 1,
+      "fallos": 0,
+      "codigos": {
+        "200": 1
+      },
+      "media_ms": 32.0,
+      "p95_ms": 32.0,
+      "max_ms": 32,
+      "limite_muestra_ms": 3500,
+      "objetivo_p95_ms": 1500,
+      "motivos": {}
+    },
+    "API-03 Contrato OpenAPI": {
+      "muestras": 1,
+      "fallos": 0,
+      "codigos": {
+        "200": 1
+      },
+      "media_ms": 39.0,
+      "p95_ms": 39.0,
+      "max_ms": 39,
+      "limite_muestra_ms": 3500,
+      "objetivo_p95_ms": 1500,
+      "motivos": {}
+    },
+    "API-04 Preflight CORS": {
+      "muestras": 1,
+      "fallos": 0,
+      "codigos": {
+        "200": 1
+      },
+      "media_ms": 5.0,
+      "p95_ms": 5.0,
+      "max_ms": 5,
+      "limite_muestra_ms": 3500,
+      "objetivo_p95_ms": 1500,
+      "motivos": {}
+    },
+    "APK-01 Descarga de APK / respuesta local": {
+      "muestras": 1,
+      "fallos": 0,
+      "codigos": {
+        "404": 1
+      },
+      "media_ms": 4.0,
+      "p95_ms": 4.0,
+      "max_ms": 4,
+      "limite_muestra_ms": 5500,
+      "objetivo_p95_ms": 2500,
+      "motivos": {}
+    },
+    "ERR-01 Texto vacio (422)": {
+      "muestras": 1,
+      "fallos": 0,
+      "codigos": {
+        "422": 1
+      },
+      "media_ms": 13.0,
+      "p95_ms": 13.0,
+      "max_ms": 13,
+      "limite_muestra_ms": 3500,
+      "objetivo_p95_ms": 1500,
+      "motivos": {}
+    },
+    "ERR-02 Tipo de archivo incorrecto (400)": {
+      "muestras": 1,
+      "fallos": 0,
+      "codigos": {
+        "400": 1
+      },
+      "media_ms": 26.0,
+      "p95_ms": 26.0,
+      "max_ms": 26,
+      "limite_muestra_ms": 3500,
+      "objetivo_p95_ms": 1500,
+      "motivos": {}
+    },
+    "ERR-03 Original inexistente (404)": {
+      "muestras": 1,
+      "fallos": 0,
+      "codigos": {
+        "404": 1
+      },
+      "media_ms": 20.0,
+      "p95_ms": 20.0,
+      "max_ms": 20,
+      "limite_muestra_ms": 3500,
+      "objetivo_p95_ms": 1500,
+      "motivos": {}
+    },
+    "ERR-04 Miniatura inexistente (404)": {
+      "muestras": 1,
+      "fallos": 0,
+      "codigos": {
+        "404": 1
+      },
+      "media_ms": 13.0,
+      "p95_ms": 13.0,
+      "max_ms": 13,
+      "limite_muestra_ms": 3500,
+      "objetivo_p95_ms": 1500,
+      "motivos": {}
+    },
+    "ERR-05 Catalogo sin sesion (401)": {
+      "muestras": 1,
+      "fallos": 0,
+      "codigos": {
+        "401": 1
+      },
+      "media_ms": 4.0,
+      "p95_ms": 4.0,
+      "max_ms": 4,
+      "limite_muestra_ms": 3500,
+      "objetivo_p95_ms": 1500,
+      "motivos": {}
+    },
+    "ERR-06 Subida sin sesion (401)": {
+      "muestras": 1,
+      "fallos": 0,
+      "codigos": {
+        "401": 1
+      },
+      "media_ms": 7.0,
+      "p95_ms": 7.0,
+      "max_ms": 7,
+      "limite_muestra_ms": 3500,
+      "objetivo_p95_ms": 1500,
+      "motivos": {}
+    }
+  }
+}

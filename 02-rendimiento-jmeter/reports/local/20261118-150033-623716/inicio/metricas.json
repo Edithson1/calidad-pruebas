@@ -1,0 +1,36 @@
+{
+  "perfil": "inicio",
+  "grupos": [
+    {
+      "flow": "inicio",
+      "users": 1,
+      "loops": 1,
+      "ramp": 1,
+      "duration": 0,
+      "pause_ms": 0
+    }
+  ],
+  "estado": "APROBADO",
+  "muestras": 1,
+  "fallos": 0,
+  "error_pct": 0.0,
+  "ventana_con_muestras_s": 0.084,
+  "muestras_por_segundo": 11.905,
+  "max_hilos_registrados": 1,
+  "observaciones": [],
+  "operaciones": {
+    "INI-01 Primer acceso a la API": {
+      "muestras": 1,
+      "fallos": 0,
+      "codigos": {
+        "200": 1
+      },
+      "media_ms": 84.0,
+      "p95_ms": 84.0,
+      "max_ms": 84,
+      "limite_muestra_ms": 6000,
+      "objetivo_p95_ms": 4000,
+      "motivos": {}
+    }
+  }
+}

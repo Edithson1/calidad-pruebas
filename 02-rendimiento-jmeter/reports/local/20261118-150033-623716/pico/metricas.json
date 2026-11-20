@@ -1,0 +1,99 @@
+{
+  "perfil": "pico",
+  "grupos": [
+    {
+      "flow": "texto",
+      "users": 5,
+      "loops": 2,
+      "ramp": 1,
+      "duration": 0,
+      "pause_ms": 500
+    },
+    {
+      "flow": "imagen",
+      "users": 3,
+      "loops": 2,
+      "ramp": 1,
+      "duration": 0,
+      "pause_ms": 500
+    }
+  ],
+  "estado": "REVISAR",
+  "muestras": 42,
+  "fallos": 0,
+  "error_pct": 0.0,
+  "ventana_con_muestras_s": 25.994,
+  "muestras_por_segundo": 1.616,
+  "max_hilos_registrados": 8,
+  "observaciones": [
+    "BUS-01: p95 de 11286.0 ms supera 8500 ms.",
+    "BUS-02: p95 de 12752.0 ms supera 11000 ms."
+  ],
+  "operaciones": {
+    "BUS-01 Busqueda por texto": {
+      "muestras": 10,
+      "fallos": 0,
+      "codigos": {
+        "200": 10
+      },
+      "media_ms": 8645.6,
+      "p95_ms": 11286.0,
+      "max_ms": 11286,
+      "limite_muestra_ms": 15000,
+      "objetivo_p95_ms": 8500,
+      "motivos": {}
+    },
+    "BUS-02 Busqueda por imagen": {
+      "muestras": 6,
+      "fallos": 0,
+      "codigos": {
+        "200": 6
+      },
+      "media_ms": 9893.5,
+      "p95_ms": 12752.0,
+      "max_ms": 12752,
+      "limite_muestra_ms": 20000,
+      "objetivo_p95_ms": 11000,
+      "motivos": {}
+    },
+    "MED-01 Miniatura de busqueda textual": {
+      "muestras": 10,
+      "fallos": 0,
+      "codigos": {
+        "200": 10
+      },
+      "media_ms": 19.9,
+      "p95_ms": 23.0,
+      "max_ms": 23,
+      "limite_muestra_ms": 5500,
+      "objetivo_p95_ms": 2500,
+      "motivos": {}
+    },
+    "MED-02 Original de busqueda textual": {
+      "muestras": 10,
+      "fallos": 0,
+      "codigos": {
+        "200": 10
+      },
+      "media_ms": 20.0,
+      "p95_ms": 23.0,
+      "max_ms": 23,
+      "limite_muestra_ms": 5500,
+      "objetivo_p95_ms": 2500,
+      "motivos": {}
+    },
+    "MED-03 Miniatura de busqueda visual": {
+      "muestras": 6,
+      "fallos": 0,
+      "codigos": {
+        "200": 6
+      },
+      "media_ms": 20.17,
+      "p95_ms": 22.0,
+      "max_ms": 22,
+      "limite_muestra_ms": 5500,
+      "objetivo_p95_ms": 2500,
+      "motivos": {}
+    }
+  }
+}

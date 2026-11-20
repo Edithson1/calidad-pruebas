@@ -1,0 +1,21 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,Latency,IdleTime,Connect
+1795031905698,6628,BUS-02 Busqueda por imagen,200,OK,imagen | 1 VU 2-1,text,true,,1699,13363,1,2,6627,0,779
+1795031913791,1166,MED-03 Miniatura de busqueda visual,200,OK,imagen | 1 VU 2-1,bin,true,,16231,185,1,2,1156,0,0
+1795031905698,10329,BUS-01 Busqueda por texto,200,OK,texto | 1 VU 1-1,text,true,,1700,254,1,2,10329,0,779
+1795031917041,1230,MED-01 Miniatura de busqueda textual,200,OK,texto | 1 VU 1-1,bin,true,,13521,185,1,2,1064,0,0
+1795031919179,1182,MED-02 Original de busqueda textual,200,OK,texto | 1 VU 1-1,bin,true,,19362,181,1,2,1178,0,0
+1795031915956,5962,BUS-02 Busqueda por imagen,200,OK,imagen | 1 VU 2-1,text,true,,1636,11415,1,2,5955,0,0
+1795031922822,1138,MED-03 Miniatura de busqueda visual,200,OK,imagen | 1 VU 2-1,bin,true,,13928,185,1,2,1123,0,0
+1795031921271,4751,BUS-01 Busqueda por texto,200,OK,texto | 1 VU 1-1,text,true,,1641,244,1,2,4736,0,0
+1795031926926,1033,MED-01 Miniatura de busqueda textual,200,OK,texto | 1 VU 1-1,bin,true,,26464,185,1,2,1017,0,0
+1795031928864,1117,MED-02 Original de busqueda textual,200,OK,texto | 1 VU 1-1,bin,true,,38572,181,1,2,1091,0,0
+1795031924868,6849,BUS-02 Busqueda por imagen,200,OK,imagen | 1 VU 2-1,text,true,,1631,12961,1,2,6848,0,0
+1795031932629,1028,MED-03 Miniatura de busqueda visual,200,OK,imagen | 1 VU 2-1,bin,true,,15761,185,1,2,1016,0,0
+1795031930893,4424,BUS-01 Busqueda por texto,200,OK,texto | 1 VU 1-1,text,true,,1636,243,1,2,4424,0,0
+1795031936223,1003,MED-01 Miniatura de busqueda textual,200,OK,texto | 1 VU 1-1,bin,true,,14225,185,1,2,1001,0,0
+1795031938138,1185,MED-02 Original de busqueda textual,200,OK,texto | 1 VU 1-1,bin,true,,20583,181,1,2,1030,0,0
+1795031934575,6992,BUS-02 Busqueda por imagen,200,OK,imagen | 1 VU 2-1,text,true,,2561,17077,1,2,6990,0,0
+1795031942473,1425,MED-03 Miniatura de busqueda visual,200,OK,imagen | 1 VU 2-1,bin,true,,21633,185,1,2,1265,0,0
+1795031940231,6128,BUS-01 Busqueda por texto,200,OK,texto | 1 VU 1-1,text,true,,2565,261,1,1,6122,0,0
+1795031947264,984,MED-01 Miniatura de busqueda textual,200,OK,texto | 1 VU 1-1,bin,true,,17370,185,1,1,976,0,0
+1795031949157,1006,MED-02 Original de busqueda textual,200,OK,texto | 1 VU 1-1,bin,true,,25197,181,1,1,992,0,0

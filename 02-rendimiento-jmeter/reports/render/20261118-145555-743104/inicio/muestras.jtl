@@ -1,0 +1,2 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,Latency,IdleTime,Connect
+1795031760491,54738,INI-01 Primer acceso a la API,200,OK,inicio | 1 VU 1-1,text,true,,492,134,1,1,54724,0,1419

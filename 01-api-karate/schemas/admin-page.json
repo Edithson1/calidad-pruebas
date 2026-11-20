@@ -1,0 +1,6 @@
+{
+  "images": "#[] adminItem",
+  "total": "#number? nonnegativeInt(_)",
+  "limit": "#number? positiveInt(_)",
+  "offset": "#number? nonnegativeInt(_)"
+}

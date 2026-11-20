@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite failures="0" name="features/08-validacion-subida.feature" skipped="0" tests="5" time="4.067567">
+  <testcase classname="features.08-validacion-subida" name="UPL-01 Rechaza archivo de texto aunque el usuario esté autenticado" time="0.052227" />
+  <testcase classname="features.08-validacion-subida" name="UPL-02 Rechaza una imagen con demasiados píxeles" time="0.020446" />
+  <testcase classname="features.08-validacion-subida" name="UPL-03 Exige la parte image" time="0.033999" />
+  <testcase classname="features.08-validacion-subida" name="UPL-04 Una palabra restringida en el nombre retorna el motivo y la palabra detectada" time="0.158333" />
+  <testcase classname="features.08-validacion-subida" name="UPL-05 Una descripción que no corresponde retorna la similitud y el umbral" time="3.802562" />
+</testsuite>

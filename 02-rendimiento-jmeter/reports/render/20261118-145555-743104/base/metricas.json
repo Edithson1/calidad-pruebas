@@ -1,0 +1,88 @@
+{
+  "perfil": "base",
+  "grupos": [
+    {
+      "flow": "busquedas",
+      "users": 1,
+      "loops": 3,
+      "ramp": 1,
+      "duration": 0,
+      "pause_ms": 600
+    }
+  ],
+  "estado": "APROBADO",
+  "muestras": 15,
+  "fallos": 0,
+  "error_pct": 0.0,
+  "ventana_con_muestras_s": 48.516,
+  "muestras_por_segundo": 0.309,
+  "max_hilos_registrados": 1,
+  "observaciones": [],
+  "operaciones": {
+    "BUS-01 Busqueda por texto": {
+      "muestras": 3,
+      "fallos": 0,
+      "codigos": {
+        "200": 3
+      },
+      "media_ms": 4217.0,
+      "p95_ms": 4628.0,
+      "max_ms": 4628,
+      "limite_muestra_ms": 40000,
+      "objetivo_p95_ms": 28000,
+      "motivos": {}
+    },
+    "BUS-02 Busqueda por imagen": {
+      "muestras": 3,
+      "fallos": 0,
+      "codigos": {
+        "200": 3
+      },
+      "media_ms": 5805.67,
+      "p95_ms": 5872.0,
+      "max_ms": 5872,
+      "limite_muestra_ms": 45000,
+      "objetivo_p95_ms": 32000,
+      "motivos": {}
+    },
+    "MED-01 Miniatura de busqueda textual": {
+      "muestras": 3,
+      "fallos": 0,
+      "codigos": {
+        "200": 3
+      },
+      "media_ms": 1089.67,
+      "p95_ms": 1223.0,
+      "max_ms": 1223,
+      "limite_muestra_ms": 25000,
+      "objetivo_p95_ms": 15000,
+      "motivos": {}
+    },
+    "MED-02 Original de busqueda textual": {
+      "muestras": 3,
+      "fallos": 0,
+      "codigos": {
+        "200": 3
+      },
+      "media_ms": 992.33,
+      "p95_ms": 1003.0,
+      "max_ms": 1003,
+      "limite_muestra_ms": 25000,
+      "objetivo_p95_ms": 15000,
+      "motivos": {}
+    },
+    "MED-03 Miniatura de busqueda visual": {
+      "muestras": 3,
+      "fallos": 0,
+      "codigos": {
+        "200": 3
+      },
+      "media_ms": 928.0,
+      "p95_ms": 938.0,
+      "max_ms": 938,
+      "limite_muestra_ms": 25000,
+      "objetivo_p95_ms": 15000,
+      "motivos": {}
+    }
+  }
+}

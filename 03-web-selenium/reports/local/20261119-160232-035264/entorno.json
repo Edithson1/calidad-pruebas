@@ -1,0 +1,27 @@
+{
+  "entorno": "local",
+  "fecha": "2026-11-19T16:02:32-05:00",
+  "api": "http://127.0.0.1:8013",
+  "filtro": null,
+  "salud_inicial": {
+    "images_in_db": 0,
+    "vectors_in_index": 0,
+    "storage_provider": "s3"
+  },
+  "catalogo_antes": {
+    "images_in_db": 32,
+    "vectors_in_index": 32,
+    "storage_provider": "s3",
+    "images_bucket_count": 32,
+    "thumbnails_bucket_count": 32
+  },
+  "web": "http://127.0.0.1:4174",
+  "catalogo_despues": {
+    "images_in_db": 32,
+    "vectors_in_index": 32,
+    "storage_provider": "s3",
+    "images_bucket_count": 32,
+    "thumbnails_bucket_count": 32
+  },
+  "codigo_salida": 0
+}

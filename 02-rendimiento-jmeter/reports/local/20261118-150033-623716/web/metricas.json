@@ -1,0 +1,62 @@
+{
+  "perfil": "web",
+  "grupos": [
+    {
+      "flow": "web",
+      "users": 2,
+      "loops": 3,
+      "ramp": 3,
+      "duration": 0,
+      "pause_ms": 450
+    }
+  ],
+  "estado": "APROBADO",
+  "muestras": 18,
+  "fallos": 0,
+  "error_pct": 0.0,
+  "ventana_con_muestras_s": 4.571,
+  "muestras_por_segundo": 3.938,
+  "max_hilos_registrados": 2,
+  "observaciones": [],
+  "operaciones": {
+    "WEB-01 Documento HTML": {
+      "muestras": 6,
+      "fallos": 0,
+      "codigos": {
+        "200": 6
+      },
+      "media_ms": 79.5,
+      "p95_ms": 274.0,
+      "max_ms": 274,
+      "limite_muestra_ms": 3000,
+      "objetivo_p95_ms": 1500,
+      "motivos": {}
+    },
+    "WEB-02 Bundle JavaScript": {
+      "muestras": 6,
+      "fallos": 0,
+      "codigos": {
+        "200": 6
+      },
+      "media_ms": 5.17,
+      "p95_ms": 6.0,
+      "max_ms": 6,
+      "limite_muestra_ms": 3000,
+      "objetivo_p95_ms": 1500,
+      "motivos": {}
+    },
+    "WEB-03 Hoja CSS": {
+      "muestras": 6,
+      "fallos": 0,
+      "codigos": {
+        "200": 6
+      },
+      "media_ms": 4.67,
+      "p95_ms": 6.0,
+      "max_ms": 6,
+      "limite_muestra_ms": 3000,
+      "objetivo_p95_ms": 1500,
+      "motivos": {}
+    }
+  }
+}

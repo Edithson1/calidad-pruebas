@@ -1,0 +1,12 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,Latency,IdleTime,Connect
+1795032076691,86,API-01 Raiz,200,OK,rutas | 1 VU 1-1,text,true,,276,117,1,1,76,0,56
+1795032078499,32,API-02 Salud y conteo del indice,200,OK,rutas | 1 VU 1-1,text,true,,404,127,1,1,32,0,0
+1795032078605,39,API-03 Contrato OpenAPI,200,OK,rutas | 1 VU 1-1,text,true,,10606,129,1,1,39,0,0
+1795032078720,5,API-04 Preflight CORS,200,OK,rutas | 1 VU 1-1,text,true,,390,250,1,1,5,0,0
+1795032078875,13,ERR-01 Texto vacio (422),422,Unprocessable Entity,rutas | 1 VU 1-1,text,true,,289,197,1,1,13,0,0
+1795032078952,26,ERR-02 Tipo de archivo incorrecto (400),400,Bad Request,rutas | 1 VU 1-1,text,true,,177,493,1,1,26,0,0
+1795032079026,20,ERR-03 Original inexistente (404),404,Not Found,rutas | 1 VU 1-1,text,true,,165,164,1,1,20,0,0
+1795032079088,13,ERR-04 Miniatura inexistente (404),404,Not Found,rutas | 1 VU 1-1,text,true,,165,168,1,1,13,0,0
+1795032079105,4,ERR-05 Catalogo sin sesion (401),401,Unauthorized,rutas | 1 VU 1-1,text,true,,187,133,1,1,4,0,0
+1795032079149,7,ERR-06 Subida sin sesion (401),401,Unauthorized,rutas | 1 VU 1-1,text,true,,187,211,1,1,7,0,0
+1795032079159,4,APK-01 Descarga de APK / respuesta local,404,Not Found,rutas | 1 VU 1-1,text,true,,204,133,1,1,4,0,0

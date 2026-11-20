@@ -1,0 +1,13 @@
+caso,consulta,limite,umbral,archivo,clase
+ELE-01,African elephant,3,0,african_elephant_african_elephant-0005.jpg,african_elephant_
+ALP-01,alpaca,3,0,alpaca_alpaca-0011.jpg,alpaca_
+ZEB-01,zebra,3,0,zebra_zebra-0007.jpg,zebra_
+ELE-02,an elephant in the wild,5,0,african_elephant_african_elephant-0026.jpg,african_elephant_
+ALP-02,a photo of an alpaca,5,0,alpaca_alpaca-0013.jpg,alpaca_
+ZEB-02,striped zebra,5,0,zebra_zebra-0008.jpg,zebra_
+ELE-03,African elephant,3,0,african_elephant_african_elephant-0054.jpg,african_elephant_
+ALP-03,alpaca,3,0,alpaca_alpaca-0037.jpg,alpaca_
+ZEB-03,zebra,3,0,zebra_zebra-0025.jpg,zebra_
+ELE-04,African elephant,5,0,african_elephant_african_elephant-0068.jpg,african_elephant_
+ALP-04,alpaca,5,0,alpaca_alpaca-0052.jpg,alpaca_
+ZEB-04,zebra,5,0,zebra_zebra-0035.jpg,zebra_

@@ -1,0 +1,96 @@
+{
+  "perfil": "incremental",
+  "grupos": [
+    {
+      "flow": "texto",
+      "users": 4,
+      "loops": 4,
+      "ramp": 12,
+      "duration": 0,
+      "pause_ms": 650
+    },
+    {
+      "flow": "imagen",
+      "users": 2,
+      "loops": 4,
+      "ramp": 12,
+      "duration": 0,
+      "pause_ms": 650
+    }
+  ],
+  "estado": "APROBADO",
+  "muestras": 64,
+  "fallos": 0,
+  "error_pct": 0.0,
+  "ventana_con_muestras_s": 38.325,
+  "muestras_por_segundo": 1.67,
+  "max_hilos_registrados": 6,
+  "observaciones": [],
+  "operaciones": {
+    "BUS-01 Busqueda por texto": {
+      "muestras": 16,
+      "fallos": 0,
+      "codigos": {
+        "200": 16
+      },
+      "media_ms": 5428.44,
+      "p95_ms": 7462.0,
+      "max_ms": 7462,
+      "limite_muestra_ms": 15000,
+      "objetivo_p95_ms": 8500,
+      "motivos": {}
+    },
+    "BUS-02 Busqueda por imagen": {
+      "muestras": 8,
+      "fallos": 0,
+      "codigos": {
+        "200": 8
+      },
+      "media_ms": 6626.0,
+      "p95_ms": 8137.0,
+      "max_ms": 8137,
+      "limite_muestra_ms": 20000,
+      "objetivo_p95_ms": 11000,
+      "motivos": {}
+    },
+    "MED-01 Miniatura de busqueda textual": {
+      "muestras": 16,
+      "fallos": 0,
+      "codigos": {
+        "200": 16
+      },
+      "media_ms": 20.12,
+      "p95_ms": 24.0,
+      "max_ms": 24,
+      "limite_muestra_ms": 5500,
+      "objetivo_p95_ms": 2500,
+      "motivos": {}
+    },
+    "MED-02 Original de busqueda textual": {
+      "muestras": 16,
+      "fallos": 0,
+      "codigos": {
+        "200": 16
+      },
+      "media_ms": 20.81,
+      "p95_ms": 27.0,
+      "max_ms": 27,
+      "limite_muestra_ms": 5500,
+      "objetivo_p95_ms": 2500,
+      "motivos": {}
+    },
+    "MED-03 Miniatura de busqueda visual": {
+      "muestras": 8,
+      "fallos": 0,
+      "codigos": {
+        "200": 8
+      },
+      "media_ms": 20.0,
+      "p95_ms": 23.0,
+      "max_ms": 23,
+      "limite_muestra_ms": 5500,
+      "objetivo_p95_ms": 2500,
+      "motivos": {}
+    }
+  }
+}

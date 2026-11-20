@@ -1,0 +1,5 @@
+{
+  "results": "#[] searchItem",
+  "total_count": "#number? nonnegativeInt(_)",
+  "query_time": "#number? Number.isFinite(_) && _ >= 0"
+}

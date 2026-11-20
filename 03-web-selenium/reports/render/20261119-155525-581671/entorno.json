@@ -1,0 +1,13 @@
+{
+  "entorno": "render",
+  "fecha": "2026-11-19T15:55:25-05:00",
+  "api": "https://visiontext-backend.onrender.com",
+  "filtro": null,
+  "salud_inicial": {
+    "images_in_db": 1575,
+    "vectors_in_index": 1575,
+    "storage_provider": "google_drive"
+  },
+  "web": "https://visiontext-sigma.vercel.app",
+  "codigo_salida": 0
+}

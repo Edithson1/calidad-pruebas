@@ -1,0 +1,96 @@
+{
+  "perfil": "sostenida",
+  "grupos": [
+    {
+      "flow": "texto",
+      "users": 2,
+      "loops": -1,
+      "ramp": 4,
+      "duration": 75,
+      "pause_ms": 750
+    },
+    {
+      "flow": "imagen",
+      "users": 1,
+      "loops": -1,
+      "ramp": 4,
+      "duration": 75,
+      "pause_ms": 750
+    }
+  ],
+  "estado": "APROBADO",
+  "muestras": 132,
+  "fallos": 0,
+  "error_pct": 0.0,
+  "ventana_con_muestras_s": 74.096,
+  "muestras_por_segundo": 1.781,
+  "max_hilos_registrados": 3,
+  "observaciones": [],
+  "operaciones": {
+    "BUS-01 Busqueda por texto": {
+      "muestras": 34,
+      "fallos": 0,
+      "codigos": {
+        "200": 34
+      },
+      "media_ms": 2122.21,
+      "p95_ms": 3623.25,
+      "max_ms": 4092,
+      "limite_muestra_ms": 15000,
+      "objetivo_p95_ms": 8500,
+      "motivos": {}
+    },
+    "BUS-02 Busqueda por imagen": {
+      "muestras": 17,
+      "fallos": 0,
+      "codigos": {
+        "200": 17
+      },
+      "media_ms": 2748.18,
+      "p95_ms": 3135.0,
+      "max_ms": 3135,
+      "limite_muestra_ms": 20000,
+      "objetivo_p95_ms": 11000,
+      "motivos": {}
+    },
+    "MED-01 Miniatura de busqueda textual": {
+      "muestras": 32,
+      "fallos": 0,
+      "codigos": {
+        "200": 32
+      },
+      "media_ms": 18.94,
+      "p95_ms": 22.0,
+      "max_ms": 22,
+      "limite_muestra_ms": 5500,
+      "objetivo_p95_ms": 2500,
+      "motivos": {}
+    },
+    "MED-02 Original de busqueda textual": {
+      "muestras": 32,
+      "fallos": 0,
+      "codigos": {
+        "200": 32
+      },
+      "media_ms": 18.84,
+      "p95_ms": 21.35,
+      "max_ms": 22,
+      "limite_muestra_ms": 5500,
+      "objetivo_p95_ms": 2500,
+      "motivos": {}
+    },
+    "MED-03 Miniatura de busqueda visual": {
+      "muestras": 17,
+      "fallos": 0,
+      "codigos": {
+        "200": 17
+      },
+      "media_ms": 20.0,
+      "p95_ms": 24.0,
+      "max_ms": 24,
+      "limite_muestra_ms": 5500,
+      "objetivo_p95_ms": 2500,
+      "motivos": {}
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite failures="0" name="features/03-busqueda-imagen.feature" skipped="0" tests="9" time="7.835887">
+  <testcase classname="features.03-busqueda-imagen" name="IMG-01 Procesa un JPEG válido y aplica el límite y el umbral" time="5.721601" />
+  <testcase classname="features.03-busqueda-imagen" name="IMG-02 Rechaza un archivo de texto" time="0.248095" />
+  <testcase classname="features.03-busqueda-imagen" name="IMG-03 Rechaza bytes inválidos aun si la parte declara image/jpeg" time="0.229351" />
+  <testcase classname="features.03-busqueda-imagen" name="IMG-04 Rechaza una imagen de 2048 por 2048 que supera los cuatro millones de píxeles" time="0.261322" />
+  <testcase classname="features.03-busqueda-imagen" name="IMG-05 Devuelve 422 si falta la parte image" time="0.246019" />
+  <testcase classname="features.03-busqueda-imagen" name="IMG-06 Rechaza limit=0 en el formulario" time="0.241374" />
+  <testcase classname="features.03-busqueda-imagen" name="IMG-07 Rechaza limit=101 en el formulario" time="0.253339" />
+  <testcase classname="features.03-busqueda-imagen" name="IMG-08 Rechaza threshold=-0.1 en el formulario" time="0.374055" />
+  <testcase classname="features.03-busqueda-imagen" name="IMG-09 Rechaza threshold=1.1 en el formulario" time="0.260732" />
+</testsuite>

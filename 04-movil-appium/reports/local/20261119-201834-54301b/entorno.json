@@ -1,0 +1,11 @@
+{
+  "entorno": "local",
+  "backend": "http://127.0.0.1:8014",
+  "apk": "app-debug.apk",
+  "sha256": "827e9c064dc9dfa07bb2fe598d6f60cf91c16cb0a30da86a9d3b60aec7e8477b",
+  "emulador": "VisionText_QA",
+  "dispositivo": "emulator-5562",
+  "android": "14",
+  "motor": "UiAutomator2",
+  "paquete": "pe.visiontext.app"
+}

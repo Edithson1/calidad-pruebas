@@ -1,0 +1,11 @@
+{
+  "success": "#boolean",
+  "message": "#string? _.trim().length > 0",
+  "image_id": "#? _ === null || (typeof _ === 'string' && /^[a-f0-9-]{36}$/i.test(_))",
+  "filename": "#? nullableText(_)",
+  "status": "#regex completed|rejected",
+  "similarity_score": "#? _ === null || boundedScore(_)",
+  "required_similarity": "#? _ === null || (typeof _ === 'number' && _ >= 0 && _ <= 1)",
+  "banned_words": "#? _ === null || (Array.isArray(_) && _.every(x => typeof x === 'string' && x.length > 0))",
+  "rejection_reason": "#? nullableText(_)"
+}

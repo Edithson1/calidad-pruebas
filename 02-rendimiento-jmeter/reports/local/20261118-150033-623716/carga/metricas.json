@@ -1,0 +1,96 @@
+{
+  "perfil": "carga",
+  "grupos": [
+    {
+      "flow": "texto",
+      "users": 1,
+      "loops": 4,
+      "ramp": 2,
+      "duration": 0,
+      "pause_ms": 900
+    },
+    {
+      "flow": "imagen",
+      "users": 1,
+      "loops": 4,
+      "ramp": 2,
+      "duration": 0,
+      "pause_ms": 900
+    }
+  ],
+  "estado": "APROBADO",
+  "muestras": 20,
+  "fallos": 0,
+  "error_pct": 0.0,
+  "ventana_con_muestras_s": 18.663,
+  "muestras_por_segundo": 1.072,
+  "max_hilos_registrados": 2,
+  "observaciones": [],
+  "operaciones": {
+    "BUS-01 Busqueda por texto": {
+      "muestras": 4,
+      "fallos": 0,
+      "codigos": {
+        "200": 4
+      },
+      "media_ms": 2087.5,
+      "p95_ms": 3473.0,
+      "max_ms": 3473,
+      "limite_muestra_ms": 15000,
+      "objetivo_p95_ms": 8500,
+      "motivos": {}
+    },
+    "BUS-02 Busqueda por imagen": {
+      "muestras": 4,
+      "fallos": 0,
+      "codigos": {
+        "200": 4
+      },
+      "media_ms": 2379.5,
+      "p95_ms": 2428.0,
+      "max_ms": 2428,
+      "limite_muestra_ms": 20000,
+      "objetivo_p95_ms": 11000,
+      "motivos": {}
+    },
+    "MED-01 Miniatura de busqueda textual": {
+      "muestras": 4,
+      "fallos": 0,
+      "codigos": {
+        "200": 4
+      },
+      "media_ms": 19.0,
+      "p95_ms": 20.0,
+      "max_ms": 20,
+      "limite_muestra_ms": 5500,
+      "objetivo_p95_ms": 2500,
+      "motivos": {}
+    },
+    "MED-02 Original de busqueda textual": {
+      "muestras": 4,
+      "fallos": 0,
+      "codigos": {
+        "200": 4
+      },
+      "media_ms": 19.5,
+      "p95_ms": 20.0,
+      "max_ms": 20,
+      "limite_muestra_ms": 5500,
+      "objetivo_p95_ms": 2500,
+      "motivos": {}
+    },
+    "MED-03 Miniatura de busqueda visual": {
+      "muestras": 4,
+      "fallos": 0,
+      "codigos": {
+        "200": 4
+      },
+      "media_ms": 19.25,
+      "p95_ms": 21.0,
+      "max_ms": 21,
+      "limite_muestra_ms": 5500,
+      "objetivo_p95_ms": 2500,
+      "motivos": {}
+    }
+  }
+}

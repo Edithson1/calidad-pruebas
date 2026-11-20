@@ -1,0 +1,6 @@
+[
+  {
+    "pattern": "(POST /session/[^\\s]+/element/[^\\s]+/value)\\s+.*",
+    "replacer": "$1 [datos de entrada omitidos]"
+  }
+]

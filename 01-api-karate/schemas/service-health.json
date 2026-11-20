@@ -1,0 +1,16 @@
+{
+  "status": "healthy",
+  "images_in_db": "#number? nonnegativeInt(_)",
+  "vectors_in_index": "#number? nonnegativeInt(_)",
+  "model": "#string? _.trim().length > 0",
+  "inference_backend": "#regex onnx|torch",
+  "storage_provider": "#(expectedProvider)",
+  "similarity_threshold": "#number? _ >= 0 && _ <= 1",
+  "services": {
+    "postgresql": "connected",
+    "storage": "connected",
+    "minio": "##string",
+    "clip": "loaded",
+    "faiss": "ready"
+  }
+}

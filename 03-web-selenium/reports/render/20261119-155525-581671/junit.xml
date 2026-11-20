@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites name="pytest tests">
+  <testsuite name="pytest" errors="0" failures="0" skipped="0" tests="8" time="133.866" timestamp="2026-11-19T15:55:31.175377-05:00">
+    <testcase classname="tests.test_visiontext" name="test_WEB_01_brave_abre_visiontext_y_navega_por_menu" time="7.191" />
+    <testcase classname="tests.test_visiontext" name="test_WEB_02_busqueda_textual_abre_el_original" time="31.238" />
+    <testcase classname="tests.test_visiontext" name="test_WEB_03_busqueda_por_imagen_recupera_archivo_conocido" time="21.772" />
+    <testcase classname="tests.test_visiontext" name="test_WEB_04_quitar_previsualizacion_y_rechazar_archivo_de_texto" time="12.050" />
+    <testcase classname="tests.test_visiontext" name="test_WEB_05_subida_y_catalogo_exigen_sesion" time="9.663" />
+    <testcase classname="tests.test_visiontext" name="test_WEB_06_menu_en_ventana_estrecha" time="7.306" />
+    <testcase classname="tests.test_visiontext" name="test_WEB_07_descarga_apk_o_aviso_de_disponibilidad" time="9.422" />
+    <testcase classname="tests.test_visiontext" name="test_WEB_08_login_paginacion_recarga_y_cierre_de_sesion" time="24.901" />
+  </testsuite>
+</testsuites>
