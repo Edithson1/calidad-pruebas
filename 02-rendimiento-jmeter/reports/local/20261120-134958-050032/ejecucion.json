@@ -1,0 +1,234 @@
+{
+  "entorno": "local",
+  "inicio": "2026-11-20T13:49:58-05:00",
+  "api": "http://127.0.0.1:8012",
+  "web": "http://127.0.0.1:4173",
+  "sistema_generador": "Windows-11-10.0.26300-SP0",
+  "procesadores_logicos": 12,
+  "arranque_api_local_ms": 7704,
+  "catalogo": {
+    "images_in_db": 12,
+    "vectors_in_index": 12,
+    "storage_provider": "s3",
+    "inference_backend": "onnx",
+    "model": "ViT-B-32 (openai)"
+  },
+  "perfiles": [
+    {
+      "perfil": "pico",
+      "grupos": [
+        {
+          "flow": "texto",
+          "users": 5,
+          "loops": 2,
+          "ramp": 1,
+          "duration": 0,
+          "pause_ms": 500
+        },
+        {
+          "flow": "imagen",
+          "users": 3,
+          "loops": 2,
+          "ramp": 1,
+          "duration": 0,
+          "pause_ms": 500
+        }
+      ],
+      "estado": "APROBADO",
+      "muestras": 42,
+      "fallos": 0,
+      "error_pct": 0.0,
+      "ventana_con_muestras_s": 12.729,
+      "muestras_por_segundo": 3.3,
+      "max_hilos_registrados": 8,
+      "observaciones": [],
+      "operaciones": {
+        "BUS-01 Busqueda por texto": {
+          "muestras": 10,
+          "fallos": 0,
+          "codigos": {
+            "200": 10
+          },
+          "media_ms": 3313.7,
+          "p95_ms": 6075.0,
+          "max_ms": 6075,
+          "limite_muestra_ms": 15000,
+          "objetivo_p95_ms": 8500,
+          "motivos": {}
+        },
+        "BUS-02 Busqueda por imagen": {
+          "muestras": 6,
+          "fallos": 0,
+          "codigos": {
+            "200": 6
+          },
+          "media_ms": 4441.83,
+          "p95_ms": 5583.0,
+          "max_ms": 5583,
+          "limite_muestra_ms": 20000,
+          "objetivo_p95_ms": 11000,
+          "motivos": {}
+        },
+        "MED-01 Miniatura de busqueda textual": {
+          "muestras": 10,
+          "fallos": 0,
+          "codigos": {
+            "200": 10
+          },
+          "media_ms": 47.8,
+          "p95_ms": 161.0,
+          "max_ms": 161,
+          "limite_muestra_ms": 5500,
+          "objetivo_p95_ms": 2500,
+          "motivos": {}
+        },
+        "MED-02 Original de busqueda textual": {
+          "muestras": 10,
+          "fallos": 0,
+          "codigos": {
+            "200": 10
+          },
+          "media_ms": 22.6,
+          "p95_ms": 28.0,
+          "max_ms": 28,
+          "limite_muestra_ms": 5500,
+          "objetivo_p95_ms": 2500,
+          "motivos": {}
+        },
+        "MED-03 Miniatura de busqueda visual": {
+          "muestras": 6,
+          "fallos": 0,
+          "codigos": {
+            "200": 6
+          },
+          "media_ms": 24.17,
+          "p95_ms": 34.0,
+          "max_ms": 34,
+          "limite_muestra_ms": 5500,
+          "objetivo_p95_ms": 2500,
+          "motivos": {}
+        }
+      }
+    },
+    {
+      "perfil": "escritura",
+      "grupos": [
+        {
+          "flow": "escritura",
+          "users": 2,
+          "loops": 2,
+          "ramp": 3,
+          "duration": 0,
+          "pause_ms": 550
+        }
+      ],
+      "estado": "APROBADO",
+      "muestras": 22,
+      "fallos": 0,
+      "error_pct": 0.0,
+      "ventana_con_muestras_s": 14.933,
+      "muestras_por_segundo": 1.473,
+      "max_hilos_registrados": 2,
+      "observaciones": [],
+      "operaciones": {
+        "ADM-01 Login de administrador": {
+          "muestras": 2,
+          "fallos": 0,
+          "codigos": {
+            "200": 2
+          },
+          "media_ms": 108.0,
+          "p95_ms": 108.0,
+          "max_ms": 108,
+          "limite_muestra_ms": 4500,
+          "objetivo_p95_ms": 2000,
+          "motivos": {}
+        },
+        "ESC-01 Subida multipart de imagen": {
+          "muestras": 4,
+          "fallos": 0,
+          "codigos": {
+            "200": 4
+          },
+          "media_ms": 3144.0,
+          "p95_ms": 4847.0,
+          "max_ms": 4847,
+          "limite_muestra_ms": 18000,
+          "objetivo_p95_ms": 10000,
+          "motivos": {}
+        },
+        "ESC-02 Original de prueba": {
+          "muestras": 4,
+          "fallos": 0,
+          "codigos": {
+            "200": 4
+          },
+          "media_ms": 20.75,
+          "p95_ms": 23.0,
+          "max_ms": 23,
+          "limite_muestra_ms": 5500,
+          "objetivo_p95_ms": 2500,
+          "motivos": {}
+        },
+        "ESC-03 Miniatura de prueba": {
+          "muestras": 4,
+          "fallos": 0,
+          "codigos": {
+            "200": 4
+          },
+          "media_ms": 22.0,
+          "p95_ms": 24.0,
+          "max_ms": 24,
+          "limite_muestra_ms": 5500,
+          "objetivo_p95_ms": 2500,
+          "motivos": {}
+        },
+        "ESC-04 Borrado de imagen de prueba": {
+          "muestras": 4,
+          "fallos": 0,
+          "codigos": {
+            "200": 4
+          },
+          "media_ms": 431.75,
+          "p95_ms": 466.0,
+          "max_ms": 466,
+          "limite_muestra_ms": 18000,
+          "objetivo_p95_ms": 10000,
+          "motivos": {}
+        },
+        "ESC-05 Original borrado (404)": {
+          "muestras": 4,
+          "fallos": 0,
+          "codigos": {
+            "404": 4
+          },
+          "media_ms": 14.75,
+          "p95_ms": 18.0,
+          "max_ms": 18,
+          "limite_muestra_ms": 3500,
+          "objetivo_p95_ms": 1500,
+          "motivos": {}
+        }
+      }
+    }
+  ],
+  "observaciones": [],
+  "hilos_inferencia": 4,
+  "preparacion_catalogo_s": 13.047,
+  "catalogo_final": {
+    "images_in_db": 12,
+    "vectors_in_index": 12,
+    "storage_provider": "s3",
+    "inference_backend": "onnx",
+    "model": "ViT-B-32 (openai)"
+  },
+  "s3_antes": {
+    "images_bucket_count": 12,
+    "thumbnails_bucket_count": 12
+  },
+  "s3_despues": {
+    "images_bucket_count": 12,
+    "thumbnails_bucket_count": 12
+  },
+  "fin": "2026-11-20T13:51:01-05:00"
+}

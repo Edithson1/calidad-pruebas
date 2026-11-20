@@ -1,0 +1,96 @@
+{
+  "perfil": "pico",
+  "grupos": [
+    {
+      "flow": "texto",
+      "users": 5,
+      "loops": 2,
+      "ramp": 1,
+      "duration": 0,
+      "pause_ms": 500
+    },
+    {
+      "flow": "imagen",
+      "users": 3,
+      "loops": 2,
+      "ramp": 1,
+      "duration": 0,
+      "pause_ms": 500
+    }
+  ],
+  "estado": "APROBADO",
+  "muestras": 42,
+  "fallos": 0,
+  "error_pct": 0.0,
+  "ventana_con_muestras_s": 12.729,
+  "muestras_por_segundo": 3.3,
+  "max_hilos_registrados": 8,
+  "observaciones": [],
+  "operaciones": {
+    "BUS-01 Busqueda por texto": {
+      "muestras": 10,
+      "fallos": 0,
+      "codigos": {
+        "200": 10
+      },
+      "media_ms": 3313.7,
+      "p95_ms": 6075.0,
+      "max_ms": 6075,
+      "limite_muestra_ms": 15000,
+      "objetivo_p95_ms": 8500,
+      "motivos": {}
+    },
+    "BUS-02 Busqueda por imagen": {
+      "muestras": 6,
+      "fallos": 0,
+      "codigos": {
+        "200": 6
+      },
+      "media_ms": 4441.83,
+      "p95_ms": 5583.0,
+      "max_ms": 5583,
+      "limite_muestra_ms": 20000,
+      "objetivo_p95_ms": 11000,
+      "motivos": {}
+    },
+    "MED-01 Miniatura de busqueda textual": {
+      "muestras": 10,
+      "fallos": 0,
+      "codigos": {
+        "200": 10
+      },
+      "media_ms": 47.8,
+      "p95_ms": 161.0,
+      "max_ms": 161,
+      "limite_muestra_ms": 5500,
+      "objetivo_p95_ms": 2500,
+      "motivos": {}
+    },
+    "MED-02 Original de busqueda textual": {
+      "muestras": 10,
+      "fallos": 0,
+      "codigos": {
+        "200": 10
+      },
+      "media_ms": 22.6,
+      "p95_ms": 28.0,
+      "max_ms": 28,
+      "limite_muestra_ms": 5500,
+      "objetivo_p95_ms": 2500,
+      "motivos": {}
+    },
+    "MED-03 Miniatura de busqueda visual": {
+      "muestras": 6,
+      "fallos": 0,
+      "codigos": {
+        "200": 6
+      },
+      "media_ms": 24.17,
+      "p95_ms": 34.0,
+      "max_ms": 34,
+      "limite_muestra_ms": 5500,
+      "objetivo_p95_ms": 2500,
+      "motivos": {}
+    }
+  }
+}

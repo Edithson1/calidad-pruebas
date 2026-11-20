@@ -1,0 +1,101 @@
+{
+  "perfil": "escritura",
+  "grupos": [
+    {
+      "flow": "escritura",
+      "users": 2,
+      "loops": 2,
+      "ramp": 3,
+      "duration": 0,
+      "pause_ms": 550
+    }
+  ],
+  "estado": "APROBADO",
+  "muestras": 22,
+  "fallos": 0,
+  "error_pct": 0.0,
+  "ventana_con_muestras_s": 14.933,
+  "muestras_por_segundo": 1.473,
+  "max_hilos_registrados": 2,
+  "observaciones": [],
+  "operaciones": {
+    "ADM-01 Login de administrador": {
+      "muestras": 2,
+      "fallos": 0,
+      "codigos": {
+        "200": 2
+      },
+      "media_ms": 108.0,
+      "p95_ms": 108.0,
+      "max_ms": 108,
+      "limite_muestra_ms": 4500,
+      "objetivo_p95_ms": 2000,
+      "motivos": {}
+    },
+    "ESC-01 Subida multipart de imagen": {
+      "muestras": 4,
+      "fallos": 0,
+      "codigos": {
+        "200": 4
+      },
+      "media_ms": 3144.0,
+      "p95_ms": 4847.0,
+      "max_ms": 4847,
+      "limite_muestra_ms": 18000,
+      "objetivo_p95_ms": 10000,
+      "motivos": {}
+    },
+    "ESC-02 Original de prueba": {
+      "muestras": 4,
+      "fallos": 0,
+      "codigos": {
+        "200": 4
+      },
+      "media_ms": 20.75,
+      "p95_ms": 23.0,
+      "max_ms": 23,
+      "limite_muestra_ms": 5500,
+      "objetivo_p95_ms": 2500,
+      "motivos": {}
+    },
+    "ESC-03 Miniatura de prueba": {
+      "muestras": 4,
+      "fallos": 0,
+      "codigos": {
+        "200": 4
+      },
+      "media_ms": 22.0,
+      "p95_ms": 24.0,
+      "max_ms": 24,
+      "limite_muestra_ms": 5500,
+      "objetivo_p95_ms": 2500,
+      "motivos": {}
+    },
+    "ESC-04 Borrado de imagen de prueba": {
+      "muestras": 4,
+      "fallos": 0,
+      "codigos": {
+        "200": 4
+      },
+      "media_ms": 431.75,
+      "p95_ms": 466.0,
+      "max_ms": 466,
+      "limite_muestra_ms": 18000,
+      "objetivo_p95_ms": 10000,
+      "motivos": {}
+    },
+    "ESC-05 Original borrado (404)": {
+      "muestras": 4,
+      "fallos": 0,
+      "codigos": {
+        "404": 4
+      },
+      "media_ms": 14.75,
+      "p95_ms": 18.0,
+      "max_ms": 18,
+      "limite_muestra_ms": 3500,
+      "objetivo_p95_ms": 1500,
+      "motivos": {}
+    }
+  }
+}

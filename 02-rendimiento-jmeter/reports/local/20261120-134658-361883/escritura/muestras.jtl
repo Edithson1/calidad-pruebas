@@ -1,0 +1,23 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,Latency,IdleTime,Connect
+1795200490244,138,ADM-01 Login de administrador,200,OK,escritura | 2 VU 1-1,text,true,,322,281,2,2,124,0,94
+1795200490244,138,ADM-01 Login de administrador,200,OK,escritura | 2 VU 1-2,text,true,,322,281,2,2,124,0,94
+1795200491549,5835,ESC-01 Subida multipart de imagen,200,OK,escritura | 2 VU 1-1,text,true,,499,13463,2,2,5835,0,0
+1795200498059,24,ESC-02 Original de prueba,200,OK,escritura | 2 VU 1-1,bin,true,,23740,164,2,2,24,0,0
+1795200498752,20,ESC-03 Miniatura de prueba,200,OK,escritura | 2 VU 1-1,bin,true,,16195,168,2,2,20,0,0
+1795200499332,411,ESC-04 Borrado de imagen de prueba,200,OK,escritura | 2 VU 1-1,text,true,,276,435,2,2,411,0,0
+1795200500388,16,ESC-05 Original borrado (404),404,Not Found,escritura | 2 VU 1-1,text,true,,165,164,2,2,16,0,0
+1795200491549,11714,ESC-01 Subida multipart de imagen,200,OK,escritura | 2 VU 1-2,text,true,,499,13475,2,2,11714,0,0
+1795200503832,18,ESC-02 Original de prueba,200,OK,escritura | 2 VU 1-2,bin,true,,23740,164,2,2,18,0,0
+1795200504407,18,ESC-03 Miniatura de prueba,200,OK,escritura | 2 VU 1-2,bin,true,,16195,168,2,2,18,0,0
+1795200504989,391,ESC-04 Borrado de imagen de prueba,200,OK,escritura | 2 VU 1-2,text,true,,276,435,2,2,391,0,0
+1795200505933,12,ESC-05 Original borrado (404),404,Not Found,escritura | 2 VU 1-2,text,true,,165,164,2,2,12,0,0
+1795200501015,7709,ESC-01 Subida multipart de imagen,200,OK,escritura | 2 VU 1-1,text,true,,499,13463,2,2,7709,0,0
+1795200509290,18,ESC-02 Original de prueba,200,OK,escritura | 2 VU 1-1,bin,true,,23740,164,2,2,18,0,0
+1795200509869,17,ESC-03 Miniatura de prueba,200,OK,escritura | 2 VU 1-1,bin,true,,16195,168,2,2,17,0,0
+1795200510452,440,ESC-04 Borrado de imagen de prueba,200,OK,escritura | 2 VU 1-1,text,true,,276,435,2,2,440,0,0
+1795200511455,14,ESC-05 Original borrado (404),404,Not Found,escritura | 2 VU 1-1,text,true,,165,164,2,2,14,0,0
+1795200506512,7809,ESC-01 Subida multipart de imagen,200,OK,escritura | 2 VU 1-2,text,true,,499,13475,1,1,7809,0,0
+1795200514887,19,ESC-02 Original de prueba,200,OK,escritura | 2 VU 1-2,bin,true,,23740,164,1,1,18,0,0
+1795200515462,22,ESC-03 Miniatura de prueba,200,OK,escritura | 2 VU 1-2,bin,true,,16195,168,1,1,22,0,0
+1795200516041,435,ESC-04 Borrado de imagen de prueba,200,OK,escritura | 2 VU 1-2,text,true,,276,435,1,1,435,0,0
+1795200517042,14,ESC-05 Original borrado (404),404,Not Found,escritura | 2 VU 1-2,text,true,,165,164,1,1,14,0,0

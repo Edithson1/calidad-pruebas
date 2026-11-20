@@ -4,7 +4,9 @@ Los planes de `plans/local/` y `plans/render/` se ejecutan con JMeter 5.6.3 y Ja
 
 ## Resultados
 
-El 18 de noviembre de 2026, las 345 muestras locales y las 69 del despliegue cumplieron sus aserciones. En local quedaron en `REVISAR` los perfiles `pico` y `escritura` por superar sus objetivos de p95. En Render y Vercel se cumplieron los objetivos de los seis perfiles. [Comparación, JTL y métricas por perfil](reports/README.md).
+El 18 de noviembre de 2026, las 345 muestras locales y las 69 del despliegue cumplieron sus aserciones. En local, `pico` y `escritura` superaron sus objetivos de p95. En Render y Vercel se cumplieron los objetivos de los seis perfiles. [Resultados de la corrida completa](reports/README.md).
+
+El 20 de noviembre se repitieron `pico` y `escritura`. Con un hilo de inferencia volvieron a quedar en `REVISAR`. Con cuatro hilos ambos cumplieron sus objetivos y pasaron las 64 muestras. [Métricas de las dos repeticiones](reports/README.md#seguimiento-local-del-20-de-noviembre).
 
 ## Ejecutar en Windows
 
@@ -34,6 +36,14 @@ Completa la [preparación local del backend](../01-api-karate/README.md#local) y
 ```
 
 El lanzador prepara las doce imágenes en un catálogo temporal en `127.0.0.1:8012` y sirve la compilación web en `127.0.0.1:4173`. Los perfiles `incremental`, `pico`, `sostenida` y `escritura` se ejecutan en el entorno local. Agrega `-Perfil carga` para repetir solo ese perfil.
+
+Para repetir las dos pruebas del seguimiento con la configuración aprobada, ejecuta desde `calidad/`.
+
+```powershell
+& '.\pruebas\02-rendimiento-jmeter\Ejecutar-JMeter.ps1' -Entorno local -Perfil pico,escritura -HilosInferencia 4
+```
+
+`-HilosInferencia` configura los hilos de inferencia del backend temporal y su valor predeterminado es `1`. JMeter mantiene los usuarios virtuales, los volúmenes de peticiones y los objetivos de cada plan. Para repetir la medición de referencia, omite el parámetro o usa `-HilosInferencia 1`.
 
 ### En conjunto
 

@@ -1,6 +1,20 @@
 # Resultados de JMeter para VisionText
 
-Ejecuciones del **18 de noviembre de 2026**, hora de Lima. Cada índice enlaza las muestras JTL y las métricas de su entorno. Puedes [reconstruir los dashboards de JMeter](../README.md#evidencia-y-lectura) con los JTL guardados.
+Cada índice enlaza las muestras JTL y las métricas de su entorno. Las fechas y horas corresponden a Lima. Puedes [reconstruir los dashboards de JMeter](../README.md#evidencia-y-lectura) con los JTL guardados.
+
+## Seguimiento local del 20 de noviembre
+
+Se repitieron `pico` con 8 usuarios virtuales y `escritura` con 2. Las dos corridas usaron los mismos planes, 12 imágenes iniciales y los mismos objetivos de latencia en el mismo equipo Windows. Con un hilo de inferencia ambos perfiles quedaron en **REVISAR**. Con cuatro hilos se aprobaron los dos perfiles.
+
+| Operación | p95 con 1 hilo | p95 con 4 hilos | Objetivo p95 |
+| --- | ---: | ---: | ---: |
+| `pico` · Búsqueda por texto | 12,456 s | 6,075 s | 8,500 s |
+| `pico` · Búsqueda por imagen | 11,315 s | 5,583 s | 11,000 s |
+| `escritura` · Subida de imagen | 11,714 s | 4,847 s | 10,000 s |
+
+Cada corrida completó 42 muestras en `pico` y 22 en `escritura`, con cero fallos de aserción. Después de las cuatro subidas y borrados, PostgreSQL y FAISS volvieron a 12 registros y vectores. RustFS volvió a 12 originales y 12 miniaturas. [Referencia con un hilo](local/20261120-134658-361883/README.md) · [Corrida aprobada con cuatro hilos](local/20261120-134958-050032/README.md) · [Comando para repetirlas](../README.md#local).
+
+## Corrida completa del 18 de noviembre
 
 | Entorno | Servicio medido | Resultado | Evidencia |
 | --- | --- | --- | --- |
@@ -21,7 +35,7 @@ La carga de dos VU registró **20 peticiones por entorno**, con cuatro búsqueda
 
 El primer acceso a Render tomó **54,74 s** y quedó registrado aparte. El proceso local estuvo listo en **11,96 s**. Su primera petición medida por JMeter, después de verificar salud, tomó **84 ms**. [Métrica del primer acceso a Render](render/20261118-145555-743104/inicio/metricas.json).
 
-## Hallazgos de rendimiento local
+## Hallazgos de la corrida local inicial
 
 El perfil `pico` llegó a **8 usuarios virtuales** y tuvo **42 respuestas que cumplieron sus aserciones individuales**. Quedó en **REVISAR** porque el p95 de búsqueda textual fue **11,29 s** frente a un objetivo de **8,5 s**, y el de búsqueda por imagen fue **12,75 s** frente a **11 s**. Las descargas de imágenes se mantuvieron en **23 ms o menos**. [Métricas de pico](local/20261118-150033-623716/pico/metricas.json).
 

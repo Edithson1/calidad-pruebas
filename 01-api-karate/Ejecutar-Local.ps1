@@ -5,7 +5,8 @@ param(
     [ValidateRange(1024,65535)][int]$StoragePort = 59111,
     [switch]$SinDescargas,
     [scriptblock]$Trabajo,
-    [string]$OrigenAdicional
+    [string]$OrigenAdicional,
+    [ValidateRange(1, [int]::MaxValue)][int]$InferenceThreads = 1
 )
 
 $ErrorActionPreference = 'Stop'
@@ -78,7 +79,7 @@ $environment = @{
     MAX_IMAGE_PIXELS = '4000000'
     THUMBNAIL_SIZE = '256'
     SIMILARITY_THRESHOLD = '0.20'
-    INFERENCE_THREADS = '1'
+    INFERENCE_THREADS = [string]$InferenceThreads
     OMP_NUM_THREADS = '1'
     MKL_NUM_THREADS = '1'
     CORS_ORIGINS = $corsOrigins -join ','

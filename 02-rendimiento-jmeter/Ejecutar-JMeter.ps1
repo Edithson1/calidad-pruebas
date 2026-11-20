@@ -6,10 +6,14 @@ param(
     [string]$JavaHome = $env:VT_JMETER_JAVA_HOME,
     [ValidateRange(1024,65535)][int]$ApiPort = 8012,
     [ValidateRange(1024,65535)][int]$WebPort = 4173,
-    [switch]$SoloPublico
+    [switch]$SoloPublico,
+    [ValidateRange(1, [int]::MaxValue)][int]$HilosInferencia = 1
 )
 
 $ErrorActionPreference = 'Stop'
+if ($Entorno -eq 'render' -and $PSBoundParameters.ContainsKey('HilosInferencia')) {
+    throw '-HilosInferencia se usa con el backend local.'
+}
 $root = $PSScriptRoot
 $project = Split-Path (Split-Path $root -Parent) -Parent
 $python = Join-Path $project 'VisionText-backend\.venv\windows\Scripts\python.exe'
@@ -42,7 +46,8 @@ if ($Entorno -eq 'local') {
         & $python @params --api-url $apiUrl --trabajo $workingFolder --arranque-ms $startMs
     }.GetNewClosure()
     $fixtureRunner = Join-Path (Split-Path $root -Parent) '01-api-karate\Ejecutar-Local.ps1'
-    & $fixtureRunner -ApiPort $ApiPort -PostgresPort 55442 -StoragePort 59112 -Trabajo $work -OrigenAdicional "http://127.0.0.1:$WebPort"
+    & $fixtureRunner -ApiPort $ApiPort -PostgresPort 55442 -StoragePort 59112 -InferenceThreads $HilosInferencia `
+        -Trabajo $work -OrigenAdicional "http://127.0.0.1:$WebPort"
 } else {
     & $python @params
 }

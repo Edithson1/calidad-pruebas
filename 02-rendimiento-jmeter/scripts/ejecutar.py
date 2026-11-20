@@ -220,6 +220,8 @@ def write_index(run, result):
     if result.get("arranque_api_local_ms") is not None:
         lines += [f"El proceso local tardó **{result['arranque_api_local_ms']} ms** en quedar listo. "
                   "El perfil `inicio` mide la petición HTTP posterior a la comprobación de salud.", ""]
+    if result.get("hilos_inferencia"):
+        lines += [f"El número de hilos de inferencia del backend local fue **{result['hilos_inferencia']}**.", ""]
     if result.get("observaciones"):
         lines += [f"- {note}" for note in result["observaciones"]] + [""]
     lines += ["| Perfil | Estado | Muestras | Fallos | Hilos máximos | Muestras/s | Archivos |",
@@ -274,6 +276,8 @@ def main():
         "sistema_generador": platform.platform(), "procesadores_logicos": os.cpu_count(),
         "arranque_api_local_ms": args.arranque_ms, "catalogo": None, "perfiles": [], "observaciones": [],
     }
+    if env == "local":
+        report["hilos_inferencia"] = int(os.environ.get("INFERENCE_THREADS", "1"))
     print(f"Resultados: {run}", flush=True)
 
     def run_one(name):

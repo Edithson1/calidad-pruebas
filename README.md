@@ -1,11 +1,11 @@
 # Pruebas de VisionText
 
-Karate comprueba la API, JMeter mide el rendimiento, Selenium recorre la web en Brave y Appium prueba la aplicación de Android. Las ejecuciones guardadas son del 17 al 19 de noviembre de 2026, hora de Lima.
+Karate comprueba la API, JMeter mide el rendimiento, Selenium recorre la web en Brave y Appium prueba la aplicación de Android. Las ejecuciones guardadas son del 17 al 20 de noviembre de 2026, hora de Lima.
 
 | Suite | Local | Desplegado | Evidencia |
 | --- | --- | --- | --- |
 | [Karate](01-api-karate/README.md) | 48 de 48 aprobadas, incluido el límite de inicio de sesión | 36 de 36 aprobadas | [Resultados de API](01-api-karate/reports/README.md) |
-| [JMeter](02-rendimiento-jmeter/README.md) | 345 muestras válidas. 8 de 10 perfiles dentro del objetivo | 69 muestras válidas. 6 de 6 perfiles dentro del objetivo | [Métricas por entorno](02-rendimiento-jmeter/reports/README.md) |
+| [JMeter](02-rendimiento-jmeter/README.md) | 8 de 10 perfiles dentro del objetivo en la corrida completa. `pico` y `escritura` aprobados al repetirlos con cuatro hilos de inferencia | 69 muestras válidas. 6 de 6 perfiles dentro del objetivo | [Métricas por entorno](02-rendimiento-jmeter/reports/README.md) |
 | [Selenium](03-web-selenium/README.md) | 11 de 11 aprobadas | 8 de 8 aprobadas en la corrida completa | [Resultados web y capturas](03-web-selenium/reports/README.md) |
 | [Appium](04-movil-appium/README.md) | 11 de 11 aprobadas | 9 de 9 aprobadas | [Resultados Android y capturas](04-movil-appium/README.md#resultados) |
 
@@ -56,7 +56,7 @@ Prepara [Java y Maven](01-api-karate/README.md), [JMeter](02-rendimiento-jmeter/
 & .\pruebas\04-movil-appium\Ejecutar-Appium.ps1 -Entorno local
 ```
 
-Cada lanzador crea su catálogo y credenciales de prueba. Si JMeter marca un perfil como `REVISAR`, consulta sus métricas y continúa con las otras suites.
+Cada lanzador crea su catálogo y credenciales de prueba. Para repetir `pico` y `escritura` con cuatro hilos de inferencia, usa el comando de la [guía de JMeter](02-rendimiento-jmeter/README.md#local).
 
 ### Desplegado
 

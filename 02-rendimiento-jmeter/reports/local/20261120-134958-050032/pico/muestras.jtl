@@ -1,0 +1,43 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,Latency,IdleTime,Connect
+1795200618613,719,BUS-01 Busqueda por texto,200,OK,texto | 5 VU 1-4,text,true,,2147,244,5,8,719,0,76
+1795200618613,1495,BUS-01 Busqueda por texto,200,OK,texto | 5 VU 1-3,text,true,,1313,226,5,8,1495,0,76
+1795200618613,2237,BUS-01 Busqueda por texto,200,OK,texto | 5 VU 1-5,text,true,,2069,241,5,8,2236,0,76
+1795200620664,123,MED-01 Miniatura de busqueda textual,200,OK,texto | 5 VU 1-3,bin,true,,15617,168,5,8,123,0,0
+1795200620664,161,MED-01 Miniatura de busqueda textual,200,OK,texto | 5 VU 1-4,bin,true,,13346,168,5,8,161,0,0
+1795200621371,23,MED-01 Miniatura de busqueda textual,200,OK,texto | 5 VU 1-5,bin,true,,18479,168,5,8,23,0,0
+1795200621418,26,MED-02 Original de busqueda textual,200,OK,texto | 5 VU 1-4,bin,true,,19187,164,5,8,26,0,0
+1795200621418,28,MED-02 Original de busqueda textual,200,OK,texto | 5 VU 1-3,bin,true,,22647,164,5,8,28,0,0
+1795200618613,3202,BUS-02 Busqueda por imagen,200,OK,imagen | 3 VU 2-1,text,true,,1375,13366,3,8,3202,0,76
+1795200621905,23,MED-02 Original de busqueda textual,200,OK,texto | 5 VU 1-5,bin,true,,26831,164,5,8,23,0,0
+1795200618613,3723,BUS-01 Busqueda por texto,200,OK,texto | 5 VU 1-2,text,true,,1317,227,5,8,3723,0,76
+1795200622455,22,MED-03 Miniatura de busqueda visual,200,OK,imagen | 3 VU 2-1,bin,true,,16195,168,3,8,21,0,0
+1795200622846,19,MED-01 Miniatura de busqueda textual,200,OK,texto | 5 VU 1-2,bin,true,,18479,168,5,8,19,0,0
+1795200618614,4658,BUS-02 Busqueda por imagen,200,OK,imagen | 3 VU 2-3,text,true,,1332,12939,3,8,4658,0,75
+1795200623378,21,MED-02 Original de busqueda textual,200,OK,texto | 5 VU 1-2,bin,true,,26831,164,5,8,21,0,0
+1795200623786,18,MED-03 Miniatura de busqueda visual,200,OK,imagen | 3 VU 2-3,bin,true,,15617,168,3,8,18,0,0
+1795200618613,5583,BUS-02 Busqueda por imagen,200,OK,imagen | 3 VU 2-2,text,true,,1301,11438,3,8,5583,0,76
+1795200618614,6075,BUS-01 Busqueda por texto,200,OK,texto | 5 VU 1-1,text,true,,1378,237,5,8,6075,0,75
+1795200624714,24,MED-03 Miniatura de busqueda visual,200,OK,imagen | 3 VU 2-2,bin,true,,13920,168,3,8,24,0,0
+1795200625199,29,MED-01 Miniatura de busqueda textual,200,OK,texto | 5 VU 1-1,bin,true,,13346,168,5,8,29,0,0
+1795200621952,3290,BUS-01 Busqueda por texto,200,OK,texto | 5 VU 1-4,text,true,,2081,234,5,8,3290,0,0
+1795200625731,28,MED-02 Original de busqueda textual,200,OK,texto | 5 VU 1-1,bin,true,,19187,164,5,8,28,0,0
+1795200625747,29,MED-01 Miniatura de busqueda textual,200,OK,texto | 5 VU 1-4,bin,true,,15617,168,5,8,29,0,0
+1795200621952,3836,BUS-01 Busqueda por texto,200,OK,texto | 5 VU 1-3,text,true,,1377,237,5,8,3836,0,0
+1795200626280,24,MED-02 Original de busqueda textual,200,OK,texto | 5 VU 1-4,bin,true,,22647,164,5,8,24,0,0
+1795200622439,3870,BUS-01 Busqueda por texto,200,OK,texto | 5 VU 1-5,text,true,,1317,227,4,7,3869,0,0
+1795200626295,32,MED-01 Miniatura de busqueda textual,200,OK,texto | 5 VU 1-3,bin,true,,13346,168,4,7,32,0,0
+1795200626816,24,MED-01 Miniatura de busqueda textual,200,OK,texto | 5 VU 1-5,bin,true,,18479,168,4,7,24,0,0
+1795200626833,22,MED-02 Original de busqueda textual,200,OK,texto | 5 VU 1-3,bin,true,,19187,164,4,7,22,0,0
+1795200622986,4276,BUS-02 Busqueda por imagen,200,OK,imagen | 3 VU 2-1,text,true,,2131,17040,3,6,4276,0,0
+1795200627349,20,MED-02 Original de busqueda textual,200,OK,texto | 5 VU 1-5,bin,true,,26831,164,3,6,20,0,0
+1795200623911,3874,BUS-01 Busqueda por texto,200,OK,texto | 5 VU 1-2,text,true,,1313,226,2,5,3874,0,0
+1795200627771,26,MED-03 Miniatura de busqueda visual,200,OK,imagen | 3 VU 2-1,bin,true,,21458,168,3,5,26,0,0
+1795200628303,20,MED-01 Miniatura de busqueda textual,200,OK,texto | 5 VU 1-2,bin,true,,15617,168,2,4,20,0,0
+1795200624321,4418,BUS-02 Busqueda por imagen,200,OK,imagen | 3 VU 2-3,text,true,,2072,15110,2,4,4418,0,0
+1795200628834,18,MED-02 Original de busqueda textual,200,OK,texto | 5 VU 1-2,bin,true,,22647,164,2,4,18,0,0
+1795200629243,34,MED-03 Miniatura de busqueda visual,200,OK,imagen | 3 VU 2-3,bin,true,,18711,168,2,3,34,0,0
+1795200625245,4514,BUS-02 Busqueda por imagen,200,OK,imagen | 3 VU 2-2,text,true,,2102,19335,1,2,4513,0,0
+1795200626264,4018,BUS-01 Busqueda por texto,200,OK,texto | 5 VU 1-1,text,true,,2147,237,1,2,4018,0,0
+1795200630265,21,MED-03 Miniatura de busqueda visual,200,OK,imagen | 3 VU 2-2,bin,true,,23836,168,1,2,21,0,0
+1795200630796,18,MED-01 Miniatura de busqueda textual,200,OK,texto | 5 VU 1-1,bin,true,,13346,168,1,1,18,0,0
+1795200631326,16,MED-02 Original de busqueda textual,200,OK,texto | 5 VU 1-1,bin,true,,19187,164,1,1,16,0,0
