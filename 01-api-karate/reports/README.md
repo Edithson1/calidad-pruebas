@@ -2,6 +2,10 @@
 
 El 17 de noviembre de 2026 se completaron 84 ejecuciones de 52 escenarios distintos. Los XML JUnit de esa fecha conservan los resultados por caso. Busca su identificador en `testcase`, por ejemplo `CAT-02` o `CIC-01`. Al ejecutar de nuevo se generan los HTML de detalle en `reports/<perfil>/`. [Casos, códigos y comandos](../README.md).
 
+La captura reúne las tablas de los tres resúmenes HTML de Karate.
+
+![Resumen de Karate con 36 escenarios aprobados en Render, 47 en integración local y uno de límite de inicio de sesión](20261117/resumen-karate.png)
+
 ## Render
 
 | Escenarios | Aprobados | JUnit |

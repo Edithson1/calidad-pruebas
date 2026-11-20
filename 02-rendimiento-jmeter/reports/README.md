@@ -1,6 +1,6 @@
 # Resultados de JMeter para VisionText
 
-Cada índice enlaza las muestras JTL y las métricas de su entorno. Las fechas y horas corresponden a Lima. Puedes [reconstruir los dashboards de JMeter](../README.md#evidencia-y-lectura) con los JTL guardados.
+Cada índice enlaza las muestras JTL y las métricas de su entorno. Las fechas y horas corresponden a Lima. Consulta los [dashboards HTML publicados](#dashboards-html) o [genera los de otros perfiles](../README.md#evidencia-y-lectura) con los JTL guardados.
 
 ## Seguimiento local del 20 de noviembre
 
@@ -44,5 +44,21 @@ En la rampa de seis usuarios, los p95 de texto e imagen fueron **7,46 s** y **8,
 El perfil `escritura` completó las cuatro subidas y borrados. El p95 de subida fue **11,20 s** frente al objetivo de **10 s**. Al terminar, PostgreSQL y FAISS volvieron a **12** registros y RustFS a **12** originales y **12** miniaturas. [Métricas de escritura](local/20261118-150033-623716/escritura/metricas.json).
 
 La prueba sostenida registró **132 muestras válidas** con hasta **3 usuarios**, en **74,10 s** entre la primera y la última muestra. [Métricas del perfil sostenido](local/20261118-150033-623716/sostenida/metricas.json).
+
+## Dashboards HTML
+
+Descarga el ZIP, extrae todos los archivos en la misma carpeta y abre `index.html` en el navegador. Cada ZIP contiene el dashboard de JMeter 5.6.3 y sus recursos.
+
+### Pico local con cuatro hilos
+
+La corrida del 20 de noviembre completó 42 muestras sin fallos. [Dashboard HTML (ZIP)](local/20261120-134958-050032/pico/dashboard-html.zip) · [JTL](local/20261120-134958-050032/pico/muestras.jtl).
+
+![Dashboard de pico local en JMeter con 42 muestras y cero fallos](local/20261120-134958-050032/pico/dashboard.png)
+
+### Carga en Render
+
+La corrida del 18 de noviembre completó 20 muestras sin fallos. [Dashboard HTML (ZIP)](render/20261118-145555-743104/carga/dashboard-html.zip) · [JTL](render/20261118-145555-743104/carga/muestras.jtl).
+
+![Dashboard de carga en Render en JMeter con 20 muestras y cero fallos](render/20261118-145555-743104/carga/dashboard.png)
 
 [Guía y comandos de JMeter](../README.md).
