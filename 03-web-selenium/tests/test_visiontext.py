@@ -13,7 +13,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from pages.visiontext import button, named
 
 SUITE = Path(__file__).resolve().parents[1]
-SAMPLE = SUITE.parents[1] / "VisionText-backend" / "dataset_final" / "african_elephant_african_elephant-0005.jpg"
+SAMPLE = SUITE / "data" / "african_elephant_african_elephant-0005.jpg"
 INVALID = SUITE / "data" / "archivo-invalido.txt"
 
 
